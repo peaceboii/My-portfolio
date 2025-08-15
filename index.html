@@ -2,130 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KV</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap"
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kumaravelu — Portfolio</title>
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <section>
-        <div class="header">
-            <h1 id="heading">Portfolio</h1>
-            <div class="hamburger" id="hamburger">&#9776;</div>
-            <div class="nav" id="navMenu">
 
-                <a href="#Home" style="text-decoration:none">Home</a>
-                <a href="#about-section" style="text-decoration:none">About</a>
-                <a href="#skills-section" style="text-decoration:none">skills</a>
-                <a href="#projects-section" style="text-decoration:none">projects</a>
-                <a href="#contact-section" style="text-decoration:none">contact</a>
+    <header class="nav">
+        <div class="nav__brand">
+            <span class="logo">KV</span>
+            <span class="brand">Kumaravelu</span>
+        </div>
+        <nav class="nav__links" id="navLinks">
+            <a href="#about" class="nav__link">About</a>
+            <a href="#skills" class="nav__link">Skills</a>
+            <a href="#projects" class="nav__link">Projects</a>
+            <a href="#contact" class="nav__link">Contact</a>
+            <a href="https://drive.google.com/file/d/1hO_nalolIH3OqWKLD1tHlDzpZxJwUu7i/view?usp=drive_link"
+                class="nav__link">CV</a>
+        </nav>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+
+    <section class="hero reveal">
+        <div class="hero__content">
+            <h1 class="gradient-text">Python Developer | Forex Trader</h1>
+            <p>Beginner → intermediate journey in NLP, model fine-tuning, and data pipelines. Currently exploring LoRA,
+                RAG, and deployment.</p>
+            <div class="hero__cta">
+                <a href="#projects" class="btn btn--primary"><i class="fa-solid fa-rocket"></i> View Projects</a>
+                <a href="#contact" class="btn btn--ghost"><i class="fa-solid fa-envelope"></i> Contact</a>
             </div>
         </div>
-    </section>
-    <section id="Home">
-        <div class="container col-xxl-8 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-
-                <div class="col-lg-6">
-                    <h1 class="display fw-bold text-body-emphasis lh-1 mb-3">"Hi, I'm kumaravelu"</h1>
-                    <p class="lead">Python Developer | Forex Trader</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="https://drive.google.com/file/d/1hO_nalolIH3OqWKLD1tHlDzpZxJwUu7i/view?usp=drive_link"
-                            class="btn" download style="text-decoration:none ">
-                            📄 Download CV
-                        </a>
-
-                    </div>
-                </div>
-            </div>
+        <div class="hero__viz tilt" data-tilt>
+            <div class="orb orb--a"></div>
+            <div class="orb orb--b"></div>
+            <div class="orb orb--c"></div>
+            <div class="mesh"></div>
         </div>
     </section>
-    <section id="about-section">
-        <div class="about">
+
+    <section class="section reveal" id="about">
+        <h2 class="section__title">About</h2>
+        <div class="card card--glass">
             <div class="profile">
                 <img src="assets/profile.png" class="img-fluid" alt="profile" width="auto" height="150">
             </div>
-            <div class="content">
-                <h2 class="display">About Me </h2>
-                <p>
-                    I'm Kumaravelu, a passionate <strong>Python Developer</strong> and <strong>Forex Trader</strong>
-                    with hands-on experience in creating automation scripts, trading bots, and
-                    intelligent financial tools.
-                </p>
-                <p>
-                    My journey started with scripting strategies for the forex market, but I quickly expanded into
-                    backend development, working on APIs, data pipelines, and real-time trading systems. I’m constantly
-                    exploring the intersection of finance and technology — where logic meets market psychology.
-                </p>
-                <p>
-                    Outside of coding, I enjoy optimizing my routines, learning about algorithmic trading models, and
-                    building tools that make life easier for traders and developers alike.
-                </p>
-                <p>
-                    if you are interested on fintech, AI-driven trading, or automation projects. Let’s
-                    connect!
-                </p>
-            </div>
-
-
+            <p>
+                I'm Kumaravelu, a passionate <strong>Python Developer</strong> and <strong>Forex Trader</strong>
+                with hands-on experience in creating automation scripts, trading bots, and
+                intelligent financial tools.
+            </p>
+            <p>
+                My journey started with scripting strategies for the forex market, but I quickly expanded into
+                backend development, working on APIs, data pipelines, and real-time trading systems. I’m constantly
+                exploring the intersection of finance and technology — where logic meets market psychology.
+            </p>
+            <p>
+                Outside of coding, I enjoy optimizing my routines, learning about algorithmic trading models, and
+                building tools that make life easier for traders and developers alike.
+            </p>
+            <p>
+                if you are interested on fintech, AI-driven trading, or automation projects. Let’s
+                connect!
+            </p>
         </div>
     </section>
 
-    <section class="display" id="projects-section">
-        <h2 class="display">My Projects</h2>
-        <div class="project">
-            <div class="personal-finance box-container">
-                <a href="https://github.com/peaceboii/personal-finance-tracker"><img src="assets/personal-finance.png"
-                        alt="personal-finance" width="200" height="110"></a>
-                <h3>Personal finance tracker</h3>
-                <p class="box-container">
-                    A full-stack web application built with <strong>Flask, PostgreSQL, and SQLAlchemy</strong> that
-                    allows users to register, log in, and track their income and expenses securely. Integrated with user
-                    authentication, form validation, and a responsive UI.
-                    <br>
-                    <strong>Deployment:</strong> Hosted on Render | <strong>Database:</strong> Render PostgreSQL
-                    <br>
-                    <a href="https://personal-finance-tracker-wh46.onrender.com" target="_blank"
-                        style="text-decoration:none ">🌐 Live Demo</a>
-                </p>
-            </div>
-            <div class="project">
-            <div class="personal-finance box-container">
-                <a href="https://github.com/peaceboii/gpt2-finance-qa.git"><img src="assets\finaceQ&A chatBot.png"
-                        alt="personal-finance" width="200" height="110"></a>
-                <h3>Finance Q&A chatBot</h3>
-                <p class="box-container">
-                    Built <strong>GPT-2 Finance Q&A Model</strong> GPT-2 Finance Q&A Model — Fine-tuned GPT-2 Medium
-                    with LoRA on a 10K+ question–answer dataset specialized for finance, economics, and investing.
-                    <br>
-                    <strong>Deployment:</strong> Hosted on Streanlit | 
-                    <br>
-                    <a href="https://gpt2-finance.streamlit.app/" target="_blank"
-                        style="text-decoration:none ">🌐 Live Demo</a>
-                </p>
-            </div>
-            <div class="news-alert-bot box-container">
-                <a href="https://github.com/peaceboii/forex_alert_bot"><img src="assets/forex-news-bot.jpg"
-                        alt="forex-alert-bot" width="200" height="110"></a>
-                <h3>News Alert Bot</h3>
-                <p class="box-container">Created a Python bot that monitors forex price fluctuations and sends real-time
-                    alerts to users via whatsapp.
-                    Utilized API integration to gather news data and deliver timely notifications.</p>
-            </div>
-            
-
-
-        </div>
-    </section>
-
-    <section class="skills section" id="skills-section">
-        <h2 class="display">Tech stack</h2>
-        <div class="box-container skills-grid">
+    <section class="section reveal" id="skills">
+        <h2 class="section__title">Skills</h2>
+        <div class="badges">
             <span class="badge"><i class="fab fa-python"></i> Python </span>
             <span class="badge"><i class="fas fa-brain"></i> NLP</span>
             <span class="badge"><i class="fas fa-tools"></i>LLm</span>
@@ -148,28 +107,115 @@
             <span class="badge"><i class="fas fa-database"></i> PostgreSQL</span>
             <span class="badge"><i class="fas fa-code"></i> REST API</span>
         </div>
-    </section>
-
-
-    <section id="contact-section">
-        <div class="contact">
-            <h2 class="display">Contact Me</h2>
-            <p class="lead">Feel free to reach out for collaboration or inquiries.</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kumaravelu2003@gmail.com&su=Job%20Opportunity&body=Hi%20Kumaravelu,%0D%0A%0D%0AI%20came%20across%20your%20portfolio..."
-                class="btn" target="_blank">
-                📧 Email Me
-            </a>
+        <div class="meters">
+            <div class="meter">
+                <span>Python</span>
+                <div class="bar"><i style="width: 100%"></i></div>
+            </div>
+            <div class="meter">
+                <span>AI&ML</span>
+                <div class="bar"><i style="width: 60%"></i></div>
+            </div>
+            <div class="meter">
+                <span>Backend pipelines</span>
+                <div class="bar"><i style="width: 75%"></i></div>
+            </div>
         </div>
-
-
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   
+    <section class="section reveal" id="projects">
+        <h2 class="section__title">Projects</h2>
+
+       
+        <div class="grid">
+            <article class="project card tilt" data-tilt>
+                <div class="project__head">
+
+                    <h3>Finance Q&A Bot — GPT-2 + LoRA</h3>
+                    <span class="chip">NLP</span>
+                </div>
+                <a href="https://github.com/peaceboii/gpt2-finance-qa.git"><img src="assets\finaceQ&A chatBot.png"
+                        alt="gpt2-finance-qa" width="200" height="110"></a>
+                <p>Fine-tuned GPT-2 Medium with LoRA on a curated 10k+ finance Q&A dataset; integrated Streamlit UI with
+                    citations and BLEU/ROUGE/BERTScore evaluation.</p>
+                <div class="metrics">
+                    <div class="metric"><span>BLEU</span><b>4.29</b></div>
+                    <div class="metric"><span>ROUGE-L</span><b>0.18</b></div>
+                    <div class="metric"><span>BERTScore-F1</span><b>0.72</b></div>
+                </div>
+                <div class="project__links">
+                    <a class="btn btn--sm" href="https://github.com/peaceboii/gpt2-finance-qa.git" target="_blank"><i
+                            class="fa-brands fa-github"></i> Code</a>
+                    <a class="btn btn--sm btn--ghost" href="https://gpt2-finance.streamlit.app/" target="_blank"><i
+                            class="fa-solid fa-globe"></i> Demo</a>
+                </div>
+            </article>
+            <article class="project card tilt" data-tilt>
+                <div class="project__head">
+                    <h3>Personal finance tracker</h3>
+                    <span class="chip chip--alt">Full-stack</span>
+                </div>
+                <a href="https://github.com/peaceboii/personal-finance-tracker"><img src="assets/personal-finance.png"
+                        alt="personal-finance" width="200" height="110"></a>
+                <p> A full-stack web application built with <strong>Flask, PostgreSQL, and SQLAlchemy</strong> that
+                    allows users to register, log in, and track their income and expenses securely. Integrated with user
+                    authentication, form validation, and a responsive UI.
+                    <br>
+                    <strong>Deployment:</strong> Hosted on Render | <strong>Database:</strong> Render PostgreSQL
+                    <br>
+                </p>
+
+                <div class="project__links">
+                    <a class="btn btn--sm" href="https://github.com/peaceboii/personal-finance-tracker"><i
+                            class="fa-brands fa-github"></i> Code</a>
+                    <a class="btn btn--sm btn--ghost" href="https://personal-finance-tracker-wh46.onrender.com"
+                        target="_blank"><i class="fa-solid fa-globe"></i> Demo</a>
+                </div>
+            </article>
+            <article class="project card tilt" data-tilt>
+                <div class="project__head">
+                    <h3>News Alert Bot</h3>
+                    <span class="chip chip--alt">API</span>
+                </div>
+                <a href="https://github.com/peaceboii/forex_alert_bot"><img src="assets/forex-news-bot.jpg"
+                        alt="forex-alert-bot" width="200" height="110"></a>
+                <p>Created a Python bot that monitors forex price fluctuations and sends real-time
+                    alerts to users via whatsapp.
+                    Utilized API integration to gather news data and deliver timely notifications.</p>
+                <div class="project__links">
+                    <a class="btn btn--sm" href="https://github.com/peaceboii/forex_alert_bot" target="_blank"><i
+                            class="fa-brands fa-github"></i> Code</a>
+            </article>
+            <article class="project card tilt" data-tilt>
+                <div class="project__head">
+                    <h3>RAG Finance Assistant (WIP)</h3>
+                    <span class="chip chip--alt">RAG</span>
+                </div>
+                <p>Experimenting with local vector stores + retrieval pipelines to augment GPT-2 answers with finance
+                    docs and provide grounded citations.</p>
+            </article>
+        </div>
+    </section>
+
+    
+    <section class="section reveal" id="contact">
+        <h2 class="section__title">Contact</h2>
+        <div class="card card--glass contact">
+            <p>Open to collaborations, feedback, and interesting finance/AI problems.</p>
+            <div class="contact__links">
+                <a href="https://kumaravelu2003@gmail.com" class="btn btn--primary"><i class="fa-solid fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/kumaravel-raj" target="_blank" class="btn btn--ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/peaceboii" target="_blank" class="btn btn--ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span>© <span id="year"></span>👨‍💻 Coded at midnight, debugged at dawn | © 2025 Kumaravelu | Powered by ☕ + Python</span>
+    </footer>
+
     <script src="index.js"></script>
 </body>
-<footer>
-    <div class="footer">
-        <p>👨‍💻 Coded at midnight, debugged at dawn | © 2025 Kumaravelu | Powered by ☕ + Python</p>
-
-    </div>
 
 </html>
