@@ -28,8 +28,7 @@
             <a href="#skills" class="nav__link">Skills</a>
             <a href="#projects" class="nav__link">Projects</a>
             <a href="#contact" class="nav__link">Contact</a>
-            <a href="https://drive.google.com/file/d/1WlSuVjno18e6ZtuP2qAdNJHxGaBFpV5D/view?usp=drive_link"
-                class="nav__link">CV</a>
+            <a href="assets/resume.pdf"class="nav__link">CV</a>
         </nav>
         <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
@@ -99,6 +98,7 @@
             <span class="badge"><i class="fas fa-flask"></i> FlaskAPI</span>
             <span class="badge"><i class="fab fa-git-alt"></i> Git/GitHub</span>
             <span class="badge"><i class="fab fa-docker"></i> Docker</span>
+            <span class="badge"><i class="fas fa-cogs"></i> Django </span>
             <span class="badge"><i class="fas fa-tools"></i> CI/CD</span>
             <span class="badge"><i class="fas fa-lock"></i> Authentication</span>
             <span class="badge"><i class="fas fa-bug"></i> Debugging</span>
@@ -121,11 +121,11 @@
         </div>
     </section>
 
-   
+
     <section class="section reveal" id="projects">
         <h2 class="section__title">Projects</h2>
 
-       
+
         <div class="grid">
             <article class="project card tilt" data-tilt>
                 <div class="project__head">
@@ -173,30 +173,22 @@
             </article>
             <article class="project card tilt" data-tilt>
                 <div class="project__head">
-                    <h3>News Alert Bot</h3>
+                    <h3>News-Bot</h3>
                     <span class="chip chip--alt">API</span>
                 </div>
-                <a href="https://github.com/peaceboii/forex_alert_bot"><img src="assets/forex-news-bot.jpg"
-                        alt="forex-alert-bot" width="200" height="110"></a>
-                <p>Created a Python bot that monitors forex price fluctuations and sends real-time
-                    alerts to users via whatsapp.
-                    Utilized API integration to gather news data and deliver timely notifications.</p>
+                <a href="https://github.com/peaceboii/NewsBot.git"><img src="assets/NewsBot.png"
+                        alt="NewsBot" width="200" height="110"></a>
+                <p>Created a Python bot that fetches News related to users preference,
+                it is a full-stack appllication built along with Django Framework</p>
                 <div class="project__links">
-                    <a class="btn btn--sm" href="https://github.com/peaceboii/forex_alert_bot" target="_blank"><i
+                    <a class="btn btn--sm" href="https://github.com/peaceboii/NewsBot.git" target="_blank"><i
                             class="fa-brands fa-github"></i> Code</a>
-            </article>
-            <article class="project card tilt" data-tilt>
-                <div class="project__head">
-                    <h3>RAG Finance Assistant (WIP)</h3>
-                    <span class="chip chip--alt">RAG</span>
-                </div>
-                <p>Experimenting with local vector stores + retrieval pipelines to augment GPT-2 answers with finance
-                    docs and provide grounded citations.</p>
+                    <a class="btn btn--sm btn--ghost" href="https://newsbot-gzlm.onrender.com/" target="_blank"><i class="fa-solid fa-globe"></i> Demo</a>
             </article>
         </div>
     </section>
 
-    
+
     <section class="section reveal" id="contact">
         <h2 class="section__title">Contact</h2>
         <div class="card card--glass contact">
