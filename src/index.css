@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-blue: #0066cc;
-  --color-primary-blue-hover: #0052a3;
-  --color-surface: #ffffff;
-  --color-surface-hover: #f9fafb;
-  --color-text-main: #111827;
-  --color-text-muted: #4b5563;
-  --color-border-subtle: #e5e7eb;
+  --color-quant-bg: #0b0f19;
+  --color-quant-panel: #111827;
+  --color-quant-green: #22c55e;
+  --color-quant-blue: #3b82f6;
+  --color-quant-cyan: #06b6d4;
+  --color-quant-text: #e5e7eb;
+  --color-quant-muted: #9ca3af;
+  --color-quant-border: rgba(34, 197, 94, 0.2);
+  --color-quant-border-blue: rgba(59, 130, 246, 0.2);
 }
 
 @layer base {
   body {
-    background-color: #fcfcfc;
-    color: var(--color-text-main);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-quant-bg);
+    color: var(--color-quant-text);
+    font-family: 'Inter', system-ui, -apple-system, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -33,38 +35,42 @@
 }
 
 @layer utilities {
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  .terminal-panel {
+    background: var(--color-quant-panel);
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
 
-  .apple-shadow {
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  .glow-green {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.15), inset 0 0 10px rgba(34, 197, 94, 0.05);
+    border-color: var(--color-quant-border);
   }
 
-  .apple-shadow-hover {
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+  .glow-blue {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.15), inset 0 0 10px rgba(59, 130, 246, 0.05);
+    border-color: var(--color-quant-border-blue);
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
   }
 }
 
-/* Custom scrollbar for clean feel */
+/* Custom scrollbar matching dark quant theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--color-quant-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #374151;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #4b5563;
 }

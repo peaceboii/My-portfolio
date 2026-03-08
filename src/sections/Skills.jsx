@@ -1,91 +1,102 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, LayoutTemplate, PenTool, Globe, Server } from 'lucide-react';
 
 const skillCategories = [
     {
-        title: "Languages",
-        icon: <Code2 className="w-6 h-6 text-blue-600" />,
-        items: ["Python", "HTML", "CSS"]
+        title: "LANGUAGES",
+        items: ["Python", "HTML", "CSS"],
+        color: "green"
     },
     {
-        title: "Frameworks",
-        icon: <LayoutTemplate className="w-6 h-6 text-blue-600" />,
-        items: ["Flask", "Django"]
+        title: "FRAMEWORKS",
+        items: ["Flask", "Django"],
+        color: "blue"
     },
     {
-        title: "Databases",
-        icon: <Database className="w-6 h-6 text-blue-600" />,
-        items: ["PostgreSQL", "SQLite"]
+        title: "DATABASES",
+        items: ["PostgreSQL", "SQLite"],
+        color: "cyan"
     },
     {
-        title: "Tools",
-        icon: <PenTool className="w-6 h-6 text-blue-600" />,
-        items: ["Git", "GitHub", "Linux", "Render", "PgAdmin"]
+        title: "TOOLS",
+        items: ["Git", "GitHub", "Linux", "Render", "PgAdmin"],
+        color: "green"
     },
     {
-        title: "Concepts",
-        icon: <Server className="w-6 h-6 text-blue-600" />,
+        title: "CONCEPTS",
         items: [
             "REST APIs",
-            "CRUD operations",
+            "Authentication",
+            "Authorization",
+            "CRUD",
             "Object Oriented Programming",
-            "Authentication and Authorization",
-            "MVC architecture",
-            "Backend development"
-        ]
+            "Backend Systems"
+        ],
+        color: "blue"
     }
 ];
 
 export default function Skills() {
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 relative z-10">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="text-center mb-16">
+                <div className="mb-16 border-l-2 border-green-500 pl-4">
                     <motion.h2
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2"
+                        className="text-sm font-mono tracking-widest text-green-500 uppercase mb-1"
                     >
-                        Expertise
+                        [ SYSTEM_CAPABILITIES ]
                     </motion.h2>
                     <motion.h3
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl font-bold text-slate-900"
+                        className="text-3xl font-bold text-slate-100"
                     >
-                        Technical Skills
+                        Technical Stack
                     </motion.h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {skillCategories.map((category, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="bg-white p-8 rounded-2xl apple-shadow hover:apple-shadow-hover transition-shadow duration-300"
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 bg-blue-50 rounded-xl">
-                                    {category.icon}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {skillCategories.map((category, idx) => {
+                        const glowClass = `hover:glow-${category.color} border-${category.color}-500/20`;
+                        const textClass = `text-${category.color}-400`;
+                        const dotClass = `bg-${category.color}-400`;
+
+                        return (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                whileHover={{ y: -5 }}
+                                className={`terminal-panel p-6 border ${glowClass} transition-all duration-300 relative overflow-hidden`}
+                            >
+                                {/* Decorative corner markers */}
+                                <div className={`absolute top-0 left-0 w-2 h-2 border-t border-l border-${category.color}-500/50`} />
+                                <div className={`absolute top-0 right-0 w-2 h-2 border-t border-r border-${category.color}-500/50`} />
+                                <div className={`absolute bottom-0 left-0 w-2 h-2 border-b border-l border-${category.color}-500/50`} />
+                                <div className={`absolute bottom-0 right-0 w-2 h-2 border-b border-r border-${category.color}-500/50`} />
+
+                                <div className="flex justify-between items-center mb-6 border-b border-slate-700/50 pb-2">
+                                    <h4 className={`text-sm font-mono tracking-wider ${textClass}`}>{category.title}</h4>
+                                    <span className="text-xs font-mono text-slate-600">v{idx + 1}.0</span>
                                 </div>
-                                <h4 className="text-xl font-semibold text-slate-900">{category.title}</h4>
-                            </div>
-                            <ul className="space-y-3">
-                                {category.items.map((item, idy) => (
-                                    <li key={idy} className="flex items-center text-slate-600">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3 shrink-0" />
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
+
+                                <ul className="space-y-3 font-mono text-sm">
+                                    {category.items.map((item, idy) => (
+                                        <li key={idy} className="flex items-center text-slate-300">
+                                            <span className={`w-1 h-1 rounded-sm ${dotClass} mr-3 shadow-[0_0_5px_currentColor]`} />
+                                            <span className="hover:text-white transition-colors cursor-default">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        )
+                    })}
                 </div>
             </div>
         </section>

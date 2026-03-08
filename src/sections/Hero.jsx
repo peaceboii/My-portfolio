@@ -14,31 +14,35 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="flex-1 text-left z-10 md:pr-12"
             >
-                <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-2">
+                <div className="inline-block px-3 py-1 mb-6 border border-green-500/30 bg-green-500/10 rounded text-green-400 font-mono text-xs uppercase tracking-widest">
+                    Status: System Online
+                </div>
+
+                <h1 className="text-4xl md:text-6xl font-extrabold text-slate-100 mb-2 font-mono tracking-tight">
                     Kumaravelu R
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
-                    Python Developer
+                <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 mb-6 font-mono">
+                    Python Developer <span className="text-slate-500">|</span> Quant Systems Builder
                 </h2>
 
-                <p className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed">
-                    Entry-level software developer specializing in Python and backend development
-                    with experience building and deploying full-stack applications.
+                <p className="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+                    Backend developer focused on building intelligent financial tools, data pipelines,
+                    and scalable web applications using Python and modern cloud infrastructure.
                 </p>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 font-mono">
                     <a
                         href="#projects"
-                        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg"
+                        className="px-6 py-3 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/50 rounded-lg transition-all shadow-[0_0_15px_rgba(34,197,94,0.1)] hover:shadow-[0_0_20px_rgba(34,197,94,0.2)]"
                     >
-                        View Projects
+                        &gt; VIEW_PROJECTS
                     </a>
                     <a
                         href="/assets/resume.pdf"
                         download
-                        className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 rounded-lg font-medium transition-colors shadow-sm hover:shadow-md"
+                        className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition-colors"
                     >
-                        Download Resume
+                        [ DOWNLOAD_RESUME ]
                     </a>
                 </div>
             </motion.div>
@@ -48,9 +52,9 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="flex-1 w-full h-[500px] md:h-[600px] relative mt-12 md:mt-0"
+                className="flex-1 w-full h-[500px] md:h-[600px] relative mt-12 md:mt-0 glow-blue rounded-2xl overflow-hidden bg-slate-900/40 backdrop-blur-sm"
             >
-                <Canvas camera={{ position: [0, 1, 5], fov: 45 }} className="w-full h-full rounded-2xl">
+                <Canvas camera={{ position: [0, 1, 6], fov: 45 }} className="w-full h-full">
                     <Suspense fallback={null}>
                         <Scene />
                     </Suspense>
