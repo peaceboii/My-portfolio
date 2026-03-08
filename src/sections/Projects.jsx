@@ -1,83 +1,96 @@
 import React from 'react';
-import HologramCard from '../components/HologramCard';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Folder } from 'lucide-react';
 
 const projects = [
     {
-        title: 'Stock Screener App',
-        description: 'A comprehensive platform for scanning and analyzing stock market data using custom parameters and technical indicators.',
-        tags: ['Python', 'React', 'FastAPI', 'Pandas'],
-        glow: 'cyan'
+        title: 'NewsBot – Django Web App',
+        description: 'Full-stack Django-based news aggregation platform with authentication, caching and real-time updates. Integrated NewsAPI and GNews API. Server-side caching.',
+        tags: ['Django', 'SQLite', 'REST APIs', 'Render'],
+        demo: 'https://newsbot-gzlm.onrender.com',
+        github: 'https://github.com/peaceboii/NewsBot.git'
     },
     {
-        title: 'Forex Intelligence Bot',
-        description: 'An automated trading bot that analyzes FX pairs and executes trades based on quantitative momentum strategies.',
-        tags: ['Python', 'MetaTrader API', 'Machine Learning'],
-        glow: 'purple'
+        title: 'Finance Q&A Chatbot',
+        description: 'AI-based chatbot trained on financial question-answer datasets. Fine-tuned GPT-2 Medium using LoRA. Streamlit interface for real-time Q&A with low latency inference deployment.',
+        tags: ['Python', 'Transformers', 'LoRA', 'Streamlit'],
+        demo: 'https://gpt2-finance.streamlit.app',
+        github: 'https://github.com/peaceboii/gpt2-finance-qa.git'
     },
     {
-        title: 'AI Trading Assistant',
-        description: 'An LLM-powered assistant tailored to answer market queries, summarize financial news, and optimize portfolio allocation.',
-        tags: ['LangChain', 'OpenAI API', 'React', 'TypeScript'],
-        glow: 'cyan'
-    },
-    {
-        title: 'Trading Mentorship Platform',
-        description: 'An educational dashboard providing courses, real-time trade signals, and community chat for aspiring traders.',
-        tags: ['Next.js', 'Tailwind', 'PostgreSQL'],
-        glow: 'purple'
-    },
-    {
-        title: 'SaaS Tools for Businesses',
-        description: 'A suite of multi-tenant microservices designed to handle invoicing, customer analytics, and data reporting.',
-        tags: ['Python', 'Docker', 'AWS', 'React'],
-        glow: 'cyan'
+        title: 'Personal Finance Tracker',
+        description: 'Full-stack application for managing personal income and expenses. Features REST API backend, PostgreSQL database, and Supabase authentication workflow.',
+        tags: ['Flask', 'PostgreSQL', 'Supabase', 'Render'],
+        demo: null,
+        github: 'https://github.com/peaceboii/personal-finance-tracker'
     }
 ];
 
 export default function Projects() {
     return (
-        <section className="min-h-screen flex flex-col justify-center px-6 py-20 relative w-full max-w-6xl mx-auto z-10">
-            <motion.h2
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-3xl font-bold text-center mb-16 text-glow-purple"
-            >
-                <span className="text-purple-400">03.</span> sys.projects.mount()
-            </motion.h2>
+        <section id="projects" className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-2"
+                    >
+                        Work
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl font-bold text-slate-900"
+                    >
+                        Featured Projects
+                    </motion.h3>
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, index) => (
-                    <HologramCard key={index} delay={index * 0.15} hoverGlow={project.glow}>
-                        <div className="flex flex-col h-full h-min-[280px]">
-                            <div className="flex justify-between items-start mb-6 text-slate-400">
-                                <div className="text-4xl">📁</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            whileHover={{ y: -5 }}
+                            className="flex flex-col h-full bg-slate-50 p-8 rounded-2xl border border-slate-100 apple-shadow transition-all duration-300 hover:apple-shadow-hover"
+                        >
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="p-3 bg-blue-100 rounded-xl">
+                                    <Folder className="w-8 h-8 text-blue-600" />
+                                </div>
                                 <div className="flex gap-3">
-                                    <a href="#" className="hover:text-cyan-400 transition-colors"><Github size={20} /></a>
-                                    <a href="#" className="hover:text-cyan-400 transition-colors"><ExternalLink size={20} /></a>
+                                    {project.github && (
+                                        <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+                                            <Github size={22} />
+                                        </a>
+                                    )}
+                                    {project.demo && (
+                                        <a href={project.demo} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+                                            <ExternalLink size={22} />
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 
-                            <h3 className={`text-xl font-bold mb-3 group-hover:text-${project.glow}-400 transition-colors`}>
-                                {project.title}
-                            </h3>
+                            <h4 className="text-xl font-bold text-slate-900 mb-3">{project.title}</h4>
+                            <p className="text-slate-600 leading-relaxed mb-6 flex-grow">{project.description}</p>
 
-                            <p className="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
-                                {project.description}
-                            </p>
-
-                            <ul className="flex flex-wrap gap-2 text-xs font-mono text-slate-500 mt-auto">
-                                {project.tags.map((tag, i) => (
-                                    <li key={i} className="px-2 py-1 bg-slate-800/50 rounded-md border border-slate-700/50">
+                            <ul className="flex flex-wrap gap-2 mt-auto">
+                                {project.tags.map((tag, tIdx) => (
+                                    <li key={tIdx} className="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-600 shadow-sm">
                                         {tag}
                                     </li>
                                 ))}
                             </ul>
-                        </div>
-                    </HologramCard>
-                ))}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );

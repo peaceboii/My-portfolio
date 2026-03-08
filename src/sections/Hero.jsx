@@ -1,82 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-
-const roles = [
-    "Python Developer",
-    "AI Builder",
-    "Quant Developer",
-    "Algorithmic Trader"
-];
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import Scene from '../three/Scene';
 
 export default function Hero() {
-    const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-    const [displayedText, setDisplayedText] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
-
-    useEffect(() => {
-        const currentRole = roles[currentRoleIndex];
-        let typingSpeed = isDeleting ? 50 : 100;
-
-        if (!isDeleting && displayedText === currentRole) {
-            setTimeout(() => setIsDeleting(true), 2000);
-            return;
-        } else if (isDeleting && displayedText === '') {
-            setIsDeleting(false);
-            setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-            return;
-        }
-
-        const timeout = setTimeout(() => {
-            setDisplayedText((prev) =>
-                isDeleting
-                    ? prev.slice(0, -1)
-                    : currentRole.slice(0, prev.length + 1)
-            );
-        }, typingSpeed);
-
-        return () => clearTimeout(timeout);
-    }, [displayedText, isDeleting, currentRoleIndex]);
-
     return (
-        <section className="min-h-screen flex flex-col justify-center items-center relative px-6 w-full max-w-7xl mx-auto pointer-events-none">
-            <div className="text-center mt-[-10vh] border p-8 rounded-2xl glass-panel pointer-events-auto">
-                <motion.h1
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 mb-4"
-                >
-                    Hi, I'm Kumaravelu
-                </motion.h1>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="h-10 text-xl md:text-2xl font-mono text-cyan-300 flex items-center justify-center gap-1"
-                >
-                    <span>&gt; {displayedText}</span>
-                    <motion.span
-                        animate={{ opacity: [1, 0] }}
-                        transition={{ repeat: Infinity, duration: 0.8 }}
-                        className="w-3 h-6 bg-cyan-400 inline-block"
-                    />
-                </motion.div>
-            </div>
-
-            {/* Scroll indicator */}
+        <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 py-20 max-w-7xl mx-auto">
+            {/* Left side: Text Content */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-auto"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex-1 text-left z-10 md:pr-12"
             >
-                <span className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-mono">Initiate Sequence</span>
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                    className="w-[1px] h-16 bg-gradient-to-b from-cyan-500 to-transparent"
-                />
+                <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-2">
+                    Kumaravelu R
+                </h1>
+                <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
+                    Python Developer
+                </h2>
+
+                <p className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed">
+                    Entry-level software developer specializing in Python and backend development
+                    with experience building and deploying full-stack applications.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                    <a
+                        href="#projects"
+                        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-md hover:shadow-lg"
+                    >
+                        View Projects
+                    </a>
+                    <a
+                        href="/assets/resume.pdf"
+                        download
+                        className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 rounded-lg font-medium transition-colors shadow-sm hover:shadow-md"
+                    >
+                        Download Resume
+                    </a>
+                </div>
+            </motion.div>
+
+            {/* Right side: 3D Canvas */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="flex-1 w-full h-[500px] md:h-[600px] relative mt-12 md:mt-0"
+            >
+                <Canvas camera={{ position: [0, 1, 5], fov: 45 }} className="w-full h-full rounded-2xl">
+                    <Suspense fallback={null}>
+                        <Scene />
+                    </Suspense>
+                </Canvas>
             </motion.div>
         </section>
     );

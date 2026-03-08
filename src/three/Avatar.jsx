@@ -1,26 +1,36 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
 export default function Avatar(props) {
-    // Try to load the model. If it's missing, useGLTF will throw an error caught by Suspense,
-    // but if the path is genuinely 404, we want a fallback.
-    // We'll wrap the actual model in a separate component to handle useGLTF gracefully if possible.
-    // Actually, Vite public assets are served at root.
+    const avatarRef = useRef();
+
+    useFrame((state) => {
+        // Subtle breathing animation: slightly stretch and compress the Y scale
+        const t = state.clock.getElapsedTime();
+        if (avatarRef.current) {
+            avatarRef.current.scale.y = 1.5 + Math.sin(t * 1.5) * 0.02; // Base scale is 1.5
+        }
+    });
 
     try {
         const { scene } = useGLTF('/assets/avatar.glb');
-        return <primitive object={scene} {...props} scale={1.5} position={[0, -1.5, 0]} />;
+        return (
+            <group ref={avatarRef} {...props}>
+                <primitive object={scene} scale={1.5} position={[0, -1.5, 0]} castShadow receiveShadow />
+            </group>
+        );
     } catch (error) {
-        // Fallback simple mesh if the GLB is not found yet
         console.warn("Avatar GLB not found, using placeholder.");
         return (
-            <mesh position={[0, 0, 0]} {...props}>
-                <capsuleGeometry args={[0.5, 1, 4, 16]} />
-                <meshStandardMaterial color="#00f3ff" wireframe />
-            </mesh>
+            <group ref={avatarRef} {...props} position={[0, 0, 0]}>
+                <mesh castShadow receiveShadow>
+                    <capsuleGeometry args={[0.5, 1, 4, 16]} />
+                    <meshStandardMaterial color="#0066cc" wireframe />
+                </mesh>
+            </group>
         );
     }
 }
 
-// Preload to avoid hanging on first render if it exists
 useGLTF.preload('/assets/avatar.glb');
