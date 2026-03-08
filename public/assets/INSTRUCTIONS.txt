@@ -1,0 +1,13 @@
+# Avatar Model Replacement Instructions
+
+To display your custom avatar in the 3D portfolio:
+
+1. Obtain your 3D model in GLB format (`.glb`). (e.g., from ReadyPlayerMe or any 3D software).
+2. Rename your file to exactly **`avatar.glb`**.
+3. Place the file into this directory (`/public/assets/`).
+4. (Optional) Replace the `resume.pdf` in `/public` with your actual resume.
+5. In your terminal, run `npm run dev` to start your application.
+
+Your avatar should automatically load in the center of the web page.
+
+If the file is not found, a wireframe capsule placeholder will be shown until it is available.
