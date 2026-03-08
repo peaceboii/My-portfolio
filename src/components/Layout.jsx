@@ -4,12 +4,12 @@ import About from '../sections/About';
 import Skills from '../sections/Skills';
 import Projects from '../sections/Projects';
 import Contact from '../sections/Contact';
-import TradingBackground from './TradingBackground';
+import LabBackground from './LabBackground';
 
 export default function Layout() {
     return (
         <main className="w-full relative min-h-screen">
-            <TradingBackground />
+            <LabBackground />
             <div className="relative z-10">
                 <Hero />
                 <About />

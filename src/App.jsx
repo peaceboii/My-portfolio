@@ -3,7 +3,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="w-full min-h-screen relative bg-slate-50 overflow-hidden text-slate-800">
+    <div className="w-full min-h-screen relative overflow-hidden">
       <Layout />
     </div>
   );

@@ -1,37 +1,47 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import { ErrorBoundary } from '../components/ErrorBoundary';
+
+function AvatarModel() {
+    const { scene } = useGLTF('/assets/model.glb');
+    return <primitive object={scene} scale={1.5} position={[0, -1.5, 0]} castShadow receiveShadow />;
+}
+
+function AvatarPlaceholder() {
+    return (
+        <mesh position={[0, -0.5, 0]} castShadow receiveShadow>
+            <capsuleGeometry args={[0.5, 1, 4, 16]} />
+            <meshStandardMaterial color="#2563eb" wireframe emissive="#2563eb" emissiveIntensity={0.5} />
+        </mesh>
+    );
+}
 
 export default function Avatar(props) {
     const avatarRef = useRef();
 
     useFrame((state) => {
-        // Subtle breathing animation and idle orbiting
+        // Noticeable breathing animation and idle orbiting
         const t = state.clock.getElapsedTime();
         if (avatarRef.current) {
-            avatarRef.current.scale.y = 1.5 + Math.sin(t * 1.5) * 0.02; // Base scale is 1.5
-            avatarRef.current.rotation.y = Math.sin(t / 4) * 0.1; // Slight twist
+            // More pronounced breathing
+            avatarRef.current.scale.y = 1 + Math.sin(t * 2) * 0.05;
+            avatarRef.current.scale.x = 1 + Math.sin(t * 2 + Math.PI) * 0.02;
+            avatarRef.current.scale.z = 1 + Math.sin(t * 2 + Math.PI) * 0.02;
+
+            // Continuous slow rotation like a 3D showcase
+            avatarRef.current.rotation.y += 0.005;
+
+            // Floating up and down
+            avatarRef.current.position.y = Math.sin(t) * 0.1;
         }
     });
 
-    try {
-        const { scene } = useGLTF('/assets/model.glb');
-        return (
-            <group ref={avatarRef} {...props}>
-                <primitive object={scene} scale={1.5} position={[0, -1.5, 0]} castShadow receiveShadow />
-            </group>
-        );
-    } catch (error) {
-        console.warn("Avatar GLB not found, using placeholder.");
-        return (
-            <group ref={avatarRef} {...props} position={[0, 0, 0]}>
-                <mesh castShadow receiveShadow>
-                    <capsuleGeometry args={[0.5, 1, 4, 16]} />
-                    <meshStandardMaterial color="#22c55e" wireframe />
-                </mesh>
-            </group>
-        );
-    }
+    return (
+        <group ref={avatarRef} {...props}>
+            <ErrorBoundary fallback={<AvatarPlaceholder />}>
+                <AvatarModel />
+            </ErrorBoundary>
+        </group>
+    );
 }
-
-useGLTF.preload('/assets/model.glb');

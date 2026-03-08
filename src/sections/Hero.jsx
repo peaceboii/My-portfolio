@@ -14,35 +14,34 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="flex-1 text-left z-10 md:pr-12"
             >
-                <div className="inline-block px-3 py-1 mb-6 border border-green-500/30 bg-green-500/10 rounded text-green-400 font-mono text-xs uppercase tracking-widest">
-                    Status: System Online
+                <div className="inline-block px-3 py-1 mb-6 border border-blue-500/30 bg-blue-500/10 rounded-full text-blue-400 font-medium text-xs uppercase tracking-widest shadow-[0_0_10px_rgba(37,99,235,0.2)]">
+                    AI Research Lab | Node Active
                 </div>
 
-                <h1 className="text-4xl md:text-6xl font-extrabold text-slate-100 mb-2 font-mono tracking-tight">
+                <h1 className="text-4xl md:text-6xl font-extrabold text-slate-100 mb-2 tracking-tight">
                     Kumaravelu R
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 mb-6 font-mono">
-                    Python Developer <span className="text-slate-500">|</span> Quant Systems Builder
+                <h2 className="text-2xl md:text-3xl font-semibold text-cyan-500 mb-6">
+                    Python Developer <span className="text-slate-600">|</span> Backend Engineer
                 </h2>
 
                 <p className="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
-                    Backend developer focused on building intelligent financial tools, data pipelines,
-                    and scalable web applications using Python and modern cloud infrastructure.
+                    Entry-level software developer specializing in Python backend systems and building scalable financial and data-driven applications.
                 </p>
 
-                <div className="flex flex-wrap gap-4 font-mono">
+                <div className="flex flex-wrap gap-4 font-medium">
                     <a
                         href="#projects"
-                        className="px-6 py-3 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/50 rounded-lg transition-all shadow-[0_0_15px_rgba(34,197,94,0.1)] hover:shadow-[0_0_20px_rgba(34,197,94,0.2)]"
+                        className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"
                     >
-                        &gt; VIEW_PROJECTS
+                        View Projects
                     </a>
                     <a
                         href="/assets/resume.pdf"
                         download
-                        className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition-colors"
+                        className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg transition-colors"
                     >
-                        [ DOWNLOAD_RESUME ]
+                        Download Resume
                     </a>
                 </div>
             </motion.div>
@@ -52,7 +51,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="flex-1 w-full h-[500px] md:h-[600px] relative mt-12 md:mt-0 glow-blue rounded-2xl overflow-hidden bg-slate-900/40 backdrop-blur-sm"
+                className="flex-1 w-full h-[500px] md:h-[600px] relative mt-12 md:mt-0 glow-primary rounded-2xl overflow-hidden bg-slate-900/60 backdrop-blur-md border border-blue-500/20"
             >
                 <Canvas camera={{ position: [0, 1, 6], fov: 45 }} className="w-full h-full">
                     <Suspense fallback={null}>

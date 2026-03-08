@@ -3,9 +3,9 @@ import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 
 const panelsData = [
-    { text: 'PYTHON', radius: 3, speed: 0.5, yOffset: 0.5, color: '#3b82f6' },
-    { text: 'APIs', radius: 2.5, speed: -0.6, yOffset: 1.5, color: '#22c55e' },
-    { text: 'DATA', radius: 3.5, speed: 0.4, yOffset: -0.5, color: '#06b6d4' },
+    { text: 'PYTHON', radius: 3, speed: 0.5, yOffset: 0.5, color: '#2563eb' },
+    { text: 'APIs', radius: 2.5, speed: -0.6, yOffset: 1.5, color: '#06b6d4' },
+    { text: 'DATA', radius: 3.5, speed: 0.4, yOffset: -0.5, color: '#2563eb' },
     { text: 'FINANCE', radius: 2.8, speed: -0.5, yOffset: 2, color: '#e5e7eb' },
 ];
 
@@ -66,7 +66,6 @@ function OrbitingPanel({ text, radius, speed, yOffset, color, index }) {
                 lineHeight={1}
                 letterSpacing={0.05}
                 textAlign="center"
-                font="https://fonts.gstatic.com/s/robotomono/v22/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPO9TxGL1O.woff" // Monospace fallback
                 anchorX="center"
                 anchorY="middle"
             >

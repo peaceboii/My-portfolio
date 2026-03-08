@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { ContactShadows, Float } from '@react-three/drei';
 import Avatar from './Avatar';
-import TradingGridFloor from './TradingGridFloor';
+import LabGridFloor from './LabGridFloor';
 import DataParticles from './DataParticles';
 import HolographicPanels from './HolographicPanels';
 
@@ -19,10 +19,10 @@ export default function Scene() {
 
     return (
         <>
-            {/* Dark studio lighting with rim and neon accents */}
-            <ambientLight intensity={0.4} color="#111827" />
-            <directionalLight position={[0, 10, 5]} intensity={1.5} color="#22c55e" /> {/* Green top light */}
-            <directionalLight position={[-5, 5, -5]} intensity={2.5} color="#3b82f6" /> {/* Blue rim light */}
+            {/* Dark lab lighting with rim and blue neon accents */}
+            <ambientLight intensity={0.5} color="#0f172a" />
+            <directionalLight position={[0, 10, 5]} intensity={1.5} color="#2563eb" /> {/* Primary blue top light */}
+            <directionalLight position={[-5, 5, -5]} intensity={2.5} color="#06b6d4" /> {/* Cyan rim light */}
 
             <group ref={group} position={[0, -1, 0]}>
                 <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.2}>
@@ -43,7 +43,7 @@ export default function Scene() {
             />
 
             {/* Background/Environment Elements */}
-            <TradingGridFloor />
+            <LabGridFloor />
             <DataParticles count={150} />
         </>
     );

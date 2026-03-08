@@ -10,8 +10,8 @@ export default function DataParticles({ count = 200 }) {
         const temp = new Float32Array(count * 3);
         const colors = new Float32Array(count * 3);
 
-        const colorPrimary = new THREE.Color('#22c55e'); // Quant green
-        const colorAccent = new THREE.Color('#06b6d4');  // Quant cyan
+        const colorPrimary = new THREE.Color('#2563eb'); // Lab blue
+        const colorAccent = new THREE.Color('#06b6d4');  // Lab cyan
 
         for (let i = 0; i < count; i++) {
             // Cylindrical spread targeting the avatar's area

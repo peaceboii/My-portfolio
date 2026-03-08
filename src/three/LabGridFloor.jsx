@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
-export default function TradingGridFloor() {
+export default function LabGridFloor() {
     const gridRef = useRef();
 
     useFrame((state) => {
@@ -14,16 +14,16 @@ export default function TradingGridFloor() {
 
     return (
         <group position={[0, -1.5, 0]}>
-            {/* Black floor to block objects below */}
+            {/* Dark floor to block objects below */}
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
                 <planeGeometry args={[100, 100]} />
-                <meshBasicMaterial color="#0b0f19" />
+                <meshBasicMaterial color="#0f172a" />
             </mesh>
 
-            {/* Subtle green/cyan trading grid */}
+            {/* Subtle blue/cyan lab grid */}
             <gridHelper
                 ref={gridRef}
-                args={[100, 100, '#06b6d4', '#22c55e']}
+                args={[100, 100, '#06b6d4', '#2563eb']}
                 position={[0, 0, 0]}
             />
         </group>

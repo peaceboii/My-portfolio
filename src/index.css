@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-quant-bg: #0b0f19;
-  --color-quant-panel: #111827;
-  --color-quant-green: #22c55e;
-  --color-quant-blue: #3b82f6;
-  --color-quant-cyan: #06b6d4;
-  --color-quant-text: #e5e7eb;
-  --color-quant-muted: #9ca3af;
-  --color-quant-border: rgba(34, 197, 94, 0.2);
-  --color-quant-border-blue: rgba(59, 130, 246, 0.2);
+  --color-lab-bg: #0f172a;
+  --color-lab-panel: #111827;
+  --color-lab-primary: #2563eb;
+  --color-lab-secondary: #06b6d4;
+  --color-lab-text: #e5e7eb;
+  --color-lab-muted: #9ca3af;
+  --color-lab-border: rgba(37, 99, 235, 0.3);
+  --color-lab-border-cyan: rgba(6, 182, 212, 0.3);
 }
 
 @layer base {
   body {
-    background-color: var(--color-quant-bg);
-    color: var(--color-quant-text);
-    font-family: 'Inter', system-ui, -apple-system, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, sans-serif;
+    background-color: var(--color-lab-bg);
+    color: var(--color-lab-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -35,42 +34,47 @@
 }
 
 @layer utilities {
-  .terminal-panel {
-    background: var(--color-quant-panel);
-    border: 1px solid rgba(55, 65, 81, 0.5);
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  .lab-panel {
+    background: var(--color-lab-panel);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
   }
 
-  .glow-green {
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.15), inset 0 0 10px rgba(34, 197, 94, 0.05);
-    border-color: var(--color-quant-border);
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.15), inset 0 0 10px rgba(37, 99, 235, 0.05);
+    border-color: var(--color-lab-border);
   }
 
-  .glow-blue {
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.15), inset 0 0 10px rgba(59, 130, 246, 0.05);
-    border-color: var(--color-quant-border-blue);
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15), inset 0 0 10px rgba(6, 182, 212, 0.05);
+    border-color: var(--color-lab-border-cyan);
   }
 
-  .text-glow-green {
-    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  .text-glow-primary {
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
   }
 }
 
-/* Custom scrollbar matching dark quant theme */
+/* Custom scrollbar matching dark lab theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-quant-bg);
+  background: var(--color-lab-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: #334155;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
+  background: #475569;
 }
