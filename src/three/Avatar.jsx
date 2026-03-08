@@ -1,11 +1,21 @@
-import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
+import React, { useRef, useEffect } from 'react';
+import { useGLTF, useAnimations } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 
 function AvatarModel() {
-    const { scene } = useGLTF('/assets/model.glb');
-    return <primitive object={scene} scale={1.5} position={[0, -1.5, 0]} castShadow receiveShadow />;
+    const { scene, animations } = useGLTF('/assets/model.glb');
+    const { actions } = useAnimations(animations, scene);
+
+    useEffect(() => {
+        // Play the first available animation
+        const actionNames = Object.keys(actions);
+        if (actionNames.length > 0) {
+            actions[actionNames[0]].play();
+        }
+    }, [actions]);
+
+    return <primitive object={scene} scale={2.4} position={[0, -2.4, 0]} castShadow receiveShadow />;
 }
 
 function AvatarPlaceholder() {

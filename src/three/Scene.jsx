@@ -19,10 +19,11 @@ export default function Scene() {
 
     return (
         <>
-            {/* Dark lab lighting with rim and blue neon accents */}
-            <ambientLight intensity={0.5} color="#0f172a" />
-            <directionalLight position={[0, 10, 5]} intensity={1.5} color="#2563eb" /> {/* Primary blue top light */}
-            <directionalLight position={[-5, 5, -5]} intensity={2.5} color="#06b6d4" /> {/* Cyan rim light */}
+            {/* Brightened studio lighting for visibility while maintaining lab vibe */}
+            <ambientLight intensity={1.5} color="#ffffff" />
+            <directionalLight position={[0, 10, 5]} intensity={2.5} color="#ffffff" /> {/* Main white fill */}
+            <directionalLight position={[0, 2, 8]} intensity={2.0} color="#e5e7eb" /> {/* Front face light */}
+            <directionalLight position={[-5, 5, -5]} intensity={3} color="#06b6d4" /> {/* Cyan rim light */}
 
             <group ref={group} position={[0, -1, 0]}>
                 <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.2}>
