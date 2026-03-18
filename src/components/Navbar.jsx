@@ -1,41 +1,36 @@
 import React from 'react';
-import { Download, Layers, Github, Linkedin } from 'lucide-react';
 
-export default function Navbar() {
+const LINKS = [
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
+];
+
+export default function Navbar({ activeSection }) {
     const resumeUrl = `${import.meta.env.BASE_URL}assets/resume.pdf`;
 
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = resumeUrl;
-        link.download = 'Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-
     return (
-        <nav className="absolute top-0 w-full z-50 p-4 sm:p-6 flex justify-between items-center pointer-events-auto">
-            <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-sapphire-abyss/40 border border-sapphire-frost/40 flex items-center justify-center shadow-[0_0_20px_rgba(4,116,196,0.35)]">
-                    <Layers className="text-sapphire-frost" size={22} />
-                </div>
-                <div className="flex flex-col leading-none">
-                    <span className="text-sm text-sapphire-frost/80 font-space tracking-[0.3em]">PORTFOLIO</span>
-                    <span className="text-lg sm:text-xl font-bold font-space text-white tracking-[0.12em]">KUMARAVELU</span>
-                </div>
-            </div>
+        <header className="navbar-wrap">
+            <nav className="navbar container">
+                <a href="#hero" className="brand">Kumaravelu</a>
 
-            <div className="flex items-center gap-2 sm:gap-3">
-                <a href="#" aria-label="GitHub" className="h-9 w-9 rounded-lg border border-sapphire-frost/25 bg-sapphire-night/40 hover:bg-sapphire-abyss/45 transition-colors flex items-center justify-center">
-                    <Github size={16} className="text-sapphire-frost" />
+                <div className="nav-links">
+                    {LINKS.map((link) => (
+                        <a
+                            key={link.id}
+                            href={`#${link.id}`}
+                            className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                </div>
+
+                <a className="resume-btn" href={resumeUrl} download>
+                    Download Resume
                 </a>
-                <a href="#" aria-label="LinkedIn" className="h-9 w-9 rounded-lg border border-sapphire-frost/25 bg-sapphire-night/40 hover:bg-sapphire-abyss/45 transition-colors flex items-center justify-center">
-                    <Linkedin size={16} className="text-sapphire-frost" />
-                </a>
-                <button className="glass-button flex items-center gap-2 font-space text-xs sm:text-sm" onClick={handleDownload}>
-                    <Download size={15} /> RESUME
-                </button>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 }
