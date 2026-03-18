@@ -3,11 +3,14 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { ContactShadows, useAnimations, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const AVATAR_URL = `${import.meta.env.BASE_URL}assets/avatar.glb`;
+const AVATAR_URL = `${import.meta.env.BASE_URL}assets/model.glb`;
 
 function AvatarModel() {
     const group = useRef();
     const headBone = useRef();
+    const waveBone = useRef();
+    const smileMesh = useRef();
+    const smileIndex = useRef(-1);
 
     const { scene, animations } = useGLTF(AVATAR_URL);
     const model = useMemo(() => scene.clone(true), [scene]);
@@ -19,6 +22,10 @@ function AvatarModel() {
                 headBone.current = child;
             }
 
+            if (!waveBone.current && child.isBone && /(rightarm|rightforearm|arm_r|mixamorigrightarm)/i.test(child.name)) {
+                waveBone.current = child;
+            }
+
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
@@ -26,6 +33,16 @@ function AvatarModel() {
                 if (child.material) {
                     child.material.envMapIntensity = 0.8;
                     child.material.needsUpdate = true;
+                }
+
+                if (!smileMesh.current && child.morphTargetDictionary && child.morphTargetInfluences) {
+                    const keys = Object.keys(child.morphTargetDictionary);
+                    const key = keys.find((morphKey) => /(smile|happy|grin|mouth)/i.test(morphKey));
+
+                    if (key) {
+                        smileMesh.current = child;
+                        smileIndex.current = child.morphTargetDictionary[key];
+                    }
                 }
             }
         });
@@ -55,6 +72,7 @@ function AvatarModel() {
 
         const t = state.clock.getElapsedTime();
         const breathe = Math.sin(t * 1.8) * 0.03;
+        const wave = Math.sin(t * 3.2) * 0.28 + 0.58;
 
         group.current.position.y = THREE.MathUtils.damp(group.current.position.y, -1.04 + breathe, 4, delta);
         group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, state.pointer.x * 0.24, 4, delta);
@@ -62,6 +80,22 @@ function AvatarModel() {
         if (headBone.current) {
             headBone.current.rotation.y = THREE.MathUtils.damp(headBone.current.rotation.y, state.pointer.x * 0.18, 4.5, delta);
             headBone.current.rotation.x = THREE.MathUtils.damp(headBone.current.rotation.x, -state.pointer.y * 0.08, 4.5, delta);
+        }
+
+        if (waveBone.current) {
+            waveBone.current.rotation.z = THREE.MathUtils.damp(waveBone.current.rotation.z, -wave, 5, delta);
+            waveBone.current.rotation.x = THREE.MathUtils.damp(waveBone.current.rotation.x, 0.28, 5, delta);
+        }
+
+        if (smileMesh.current && smileIndex.current >= 0) {
+            const targetSmile = 0.15 + Math.sin(t * 1.4) * 0.04;
+            const influences = smileMesh.current.morphTargetInfluences;
+            influences[smileIndex.current] = THREE.MathUtils.damp(
+                influences[smileIndex.current] ?? 0,
+                targetSmile,
+                3.4,
+                delta
+            );
         }
     });
 
