@@ -24,25 +24,26 @@ export default function About() {
             01. INTRODUCTION
           </motion.p>
           <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Developing <span className="text-gradient">Impactful</span> Digital Solutions
+            Where Logic meets <span className="text-gradient">Market Psychology</span>
           </h2>
           <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
             <p>
-              I am a developer who thrives at the intersection of finance and technology. My journey is driven by a curiosity to automate the complex and simplify the user experience.
+                My journey started with scripting strategies for the forex market, but I quickly expanded into
+                backend development, working on APIs, data pipelines, and real-time trading systems.
             </p>
             <p>
-              With a background in Full Stack development and a deep interest in FinTech, I build applications that are not only functional but also performant and secure.
+                I’m constantly exploring the intersection of finance and technology — building tools that make life easier for traders and developers alike.
             </p>
           </div>
           
           <div className="mt-12 grid grid-cols-2 gap-8">
             <div>
-              <h3 className="text-white font-bold text-3xl mb-1">5+</h3>
-              <p className="text-slate-500 font-mono text-sm uppercase">Years Coding</p>
+              <h3 className="text-white font-bold text-3xl mb-1">3+</h3>
+              <p className="text-slate-500 font-mono text-sm uppercase">Years in FinTech</p>
             </div>
             <div>
-              <h3 className="text-white font-bold text-3xl mb-1">20+</h3>
-              <p className="text-slate-500 font-mono text-sm uppercase">Projects Delivered</p>
+              <h3 className="text-white font-bold text-3xl mb-1">10k+</h3>
+              <p className="text-slate-500 font-mono text-sm uppercase">Dataset Curation</p>
             </div>
           </div>
         </motion.div>
@@ -53,8 +54,8 @@ export default function About() {
             className="aspect-square glass rounded-2xl p-8 relative z-10 overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="h-full w-full border border-dashed border-slate-700/50 rounded-xl flex items-center justify-center">
-               <span className="text-slate-500 font-mono">IMAGE_PLACEHOLDER</span>
+            <div className="h-full w-full border border-dashed border-slate-700/50 rounded-xl flex items-center justify-center overflow-hidden">
+               <img src="/assets/profile.png" alt="Kumaravelu" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
             </div>
           </motion.div>
           

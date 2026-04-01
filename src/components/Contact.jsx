@@ -15,21 +15,21 @@ export default function Contact() {
                 <p className="text-cyan-400 font-mono mb-4">05. COLLABORATION</p>
                 <h2 className="text-4xl md:text-5xl font-bold mb-8">Let's <span className="text-gradient">Connect</span></h2>
                 <p className="text-slate-400 text-lg mb-12">
-                  Have a challenging project in mind or just want to say hi? I'm always open to discussing new opportunities and innovative ideas.
+                  Open to collaborations, feedback, and interesting finance/AI problems. Feel free to reach out via any of the channels below.
                 </p>
                 
                 <div className="space-y-6">
-                   <a href="mailto:hello@example.com" className="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition-colors group">
+                   <a href="mailto:kumaravelu2003@gmail.com" className="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-slate-800/50 flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
                         <Mail size={20} />
                       </div>
-                      <span className="font-mono text-sm tracking-widest">HELLO@EXAMPLE.COM</span>
+                      <span className="font-mono text-sm tracking-widest uppercase">kumaravelu2003@gmail.com</span>
                    </a>
                    <div className="flex gap-4">
-                      <a href="#" className="w-12 h-12 rounded-xl bg-slate-800/50 flex items-center justify-center text-slate-300 hover:text-cyan-400 transition-colors">
+                      <a href="https://github.com/peaceboii" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-slate-800/50 flex items-center justify-center text-slate-300 hover:text-cyan-400 transition-colors">
                         <Github size={20} />
                       </a>
-                      <a href="#" className="w-12 h-12 rounded-xl bg-slate-800/50 flex items-center justify-center text-slate-300 hover:text-cyan-400 transition-colors">
+                      <a href="https://linkedin.com/in/kumaravel-raj" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-slate-800/50 flex items-center justify-center text-slate-300 hover:text-cyan-400 transition-colors">
                         <Linkedin size={20} />
                       </a>
                    </div>

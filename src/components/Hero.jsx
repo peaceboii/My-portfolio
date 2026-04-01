@@ -21,7 +21,7 @@ export default function Hero() {
                         transition={{ delay: 0.2 }}
                         className="text-cyan-400 font-mono tracking-widest uppercase mb-4"
                     >
-                        // Portfolio v1.0
+                        // Portfolio v2.0
                     </motion.p>
                     
                     <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
@@ -37,7 +37,9 @@ export default function Hero() {
                                 2000,
                                 'FinTech Innovator',
                                 2000,
-                                'UI/UX Explorer',
+                                'AI & ML Explorer',
+                                2000,
+                                'Backend Architect',
                                 2000,
                             ]}
                             wrapper="span"
@@ -53,7 +55,7 @@ export default function Hero() {
                         className="text-lg text-slate-400 max-w-2xl mb-12 leading-relaxed"
                     >
                         Building high-performance automation systems and finance-focused tools 
-                        with a passion for clean architecture and immersive user experiences.
+                        where logic meets market psychology. Passionate about clean architecture and immersive user experiences.
                     </motion.p>
                     
                     <motion.div 

@@ -5,42 +5,42 @@ import { ExternalLink, Github, X, Info } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: "Quantum Trading Engine",
-    category: "FinTech / Automation",
-    description: "High-frequency algorithmic trading system using Python and WebSockets.",
-    problem: "Real-time market data processing at scale with low latency.",
-    solution: "Implemented an asynchronous architecture with Redis for caching and custom data pipelines.",
-    tech: ["Python", "Redis", "WebSockets", "Docker", "PostgreSQL"],
-    impact: "Reduced execution latency by 45% and improved trade accuracy.",
-    github: "#",
-    live: "#",
-    image: "https://via.placeholder.com/600x400/030712/06b6d4?text=FINTECH+SYSTEM"
+    title: "Finance Q&A Bot — GPT-2 + LoRA",
+    category: "NLP",
+    description: "Fine-tuned GPT-2 Medium with LoRA on a curated 10k+ finance Q&A dataset; integrated Streamlit UI.",
+    problem: "Providing accurate, cited financial information using lightweight LLMs.",
+    solution: "Used LoRA for efficient fine-tuning; integrated citations and BLEU/ROUGE/BERTScore evaluation.",
+    tech: ["Python", "GPT-2", "LoRA", "Streamlit", "Transformers"],
+    impact: "Achieved BLEU: 57.91, ROUGE-L: 0.64, and BERTScore-F1: 0.94.",
+    github: "https://github.com/peaceboii/gpt2-finance-qa.git",
+    live: "https://gpt2-finance.streamlit.app/",
+    image: "/assets/finaceQ&A chatBot.png"
   },
   {
     id: 2,
-    title: "EcoLink Dashboard",
-    category: "Web Application",
-    description: "Environmental monitoring dashboard for IoT sensors.",
-    problem: "Visualizing complex sensor data for non-technical users.",
-    solution: "Designed a clean, intuitive UI with real-time charting and automated alerts.",
-    tech: ["Next.js", "Three.js", "D3.js", "Firebase"],
-    impact: "Increased user engagement by 60% and simplified reporting.",
-    github: "#",
-    live: "#",
-    image: "https://via.placeholder.com/600x400/030712/8b5cf6?text=IOT+DASHBOARD"
+    title: "Personal Finance Tracker",
+    category: "Full-stack",
+    description: "A full-stack web application for secure income and expense tracking.",
+    problem: "Need for a secure, intuitive way to manage personal finances with real-time updates.",
+    solution: "Built with Flask, PostgreSQL, and SQLAlchemy; integrated user authentication and responsive UI.",
+    tech: ["Flask", "PostgreSQL", "SQLAlchemy", "Render", "JavaScript"],
+    impact: "Hosted on Render with automated database backups and secure auth.",
+    github: "https://github.com/peaceboii/personal-finance-tracker",
+    live: "https://personal-finance-tracker-1-3vl9.onrender.com",
+    image: "/assets/personal-finance.png"
   },
   {
     id: 3,
-    title: "NitroAuth SDK",
-    category: "Security / Open Source",
-    description: "Passwordless authentication SDK for modern web apps.",
-    problem: "Traditional auth methods are prone to phishing and user friction.",
-    solution: "Built a WebAuthn-based SDK with biometric support and seamless integration.",
-    tech: ["TypeScript", "WebAuthn", "Express", "React"],
-    impact: "Adopted by 50+ developers; eliminated 99% of login-related phishing.",
-    github: "#",
-    live: "#",
-    image: "https://via.placeholder.com/600x400/030712/ec4899?text=SECURITY+SDK"
+    title: "News-Bot",
+    category: "API / Django",
+    description: "Python bot fetching news related to user's preference with a full-stack Django UI.",
+    problem: "Sifting through irrelevant news to find specific finance/tech updates.",
+    solution: "Created a preference-based fetching engine with a Django-powered dashboard.",
+    tech: ["Python", "Django", "NewsAPI", "Render", "PostgreSQL"],
+    impact: "Automated daily news curation, tailored to user-specified niches.",
+    github: "https://github.com/peaceboii/NewsBot.git",
+    live: "https://newsbot-gzlm.onrender.com/",
+    image: "/assets/NewsBot.png"
   }
 ];
 
@@ -60,7 +60,7 @@ export default function Projects() {
             <h2 className="text-4xl md:text-5xl font-bold">Featured <span className="text-gradient">Projects</span></h2>
           </div>
           <p className="text-slate-400 max-w-md">
-            A selection of my most challenging and impactful projects, from high-frequency trading to secure SDKs.
+            A selection of my technical implementations in FinTech, AI/NLP, and Full-stack development.
           </p>
         </motion.div>
 
@@ -87,7 +87,7 @@ export default function Projects() {
               <div className="p-6 flex flex-col flex-1">
                 <p className="text-cyan-400 font-mono text-xs mb-2">{project.category}</p>
                 <h3 className="text-xl font-bold mb-4">{project.title}</h3>
-                <p className="text-slate-400 text-sm mb-6 flex-1">{project.description}</p>
+                <p className="text-slate-400 text-sm mb-6 flex-1 line-clamp-2">{project.description}</p>
                 <div className="flex gap-4">
                    {project.tech.slice(0, 3).map((t, i) => (
                      <span key={i} className="text-[10px] uppercase font-bold tracking-wider text-slate-500 border border-slate-800 px-2 py-1 rounded">
@@ -133,15 +133,15 @@ export default function Projects() {
                   
                   <div className="space-y-8">
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Problem</h4>
+                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Goal</h4>
                       <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.problem}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Solution</h4>
+                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Methodology</h4>
                       <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.solution}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Impact</h4>
+                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Metrics/Impact</h4>
                       <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.impact}</p>
                     </div>
                   </div>
@@ -155,11 +155,11 @@ export default function Projects() {
                   </div>
 
                   <div className="mt-12 flex gap-6">
-                    <a href={selectedProject.live} className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
+                    <a href={selectedProject.live} target="_blank" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
                        <ExternalLink size={18} />
                        <span className="font-bold text-sm tracking-widest">LIVE DEMO</span>
                     </a>
-                    <a href={selectedProject.github} className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
+                    <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
                        <Github size={18} />
                        <span className="font-bold text-sm tracking-widest">GITHUB</span>
                     </a>

@@ -10,18 +10,21 @@ import {
   Zap,
   TrendingUp,
   ShieldCheck,
-  Smartphone
+  Brain,
+  FlaskConical,
+  GitBranch,
+  Box
 } from 'lucide-react';
 
 const skills = [
-  { name: 'Python', icon: Terminal, color: 'text-blue-400', proficiency: '95%' },
-  { name: 'React / Next.js', icon: Globe, color: 'text-cyan-400', proficiency: '90%' },
-  { name: 'Node.js', icon: Zap, color: 'text-green-400', proficiency: '85%' },
-  { name: 'PostgreSQL', icon: Database, color: 'text-indigo-400', proficiency: '80%' },
-  { name: 'FinTech APIs', icon: TrendingUp, color: 'text-emerald-400', proficiency: '85%' },
-  { name: 'System Design', icon: Layers, color: 'text-purple-400', proficiency: '75%' },
-  { name: 'Cyber Security', icon: ShieldCheck, color: 'text-red-400', proficiency: '70%' },
-  { name: 'Automation', icon: Cpu, color: 'text-orange-400', proficiency: '95%' },
+  { name: 'Python', icon: Terminal, color: 'text-blue-400', proficiency: '100%' },
+  { name: 'NLP & LLM', icon: Brain, color: 'text-purple-400', proficiency: '65%' },
+  { name: 'Backend Pipelines', icon: Layers, color: 'text-indigo-400', proficiency: '75%' },
+  { name: 'JavaScript', icon: Globe, color: 'text-yellow-400', proficiency: '80%' },
+  { name: 'Django / Flask', icon: FlaskConical, color: 'text-emerald-400', proficiency: '85%' },
+  { name: 'PostgreSQL', icon: Database, color: 'text-cyan-400', proficiency: '85%' },
+  { name: 'Docker', icon: Box, color: 'text-blue-500', proficiency: '70%' },
+  { name: 'Git / CI-CD', icon: GitBranch, color: 'text-orange-400', proficiency: '90%' },
 ];
 
 const containerVariants = {
