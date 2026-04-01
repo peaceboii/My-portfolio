@@ -36,14 +36,10 @@ export default function About() {
             </p>
           </div>
           
-          <div className="mt-12 grid grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-slate-900 font-bold text-3xl mb-1">3+</h3>
-              <p className="text-slate-500 font-mono text-sm uppercase">Years in FinTech</p>
-            </div>
+          <div className="mt-12">
             <div>
               <h3 className="text-slate-900 font-bold text-3xl mb-1">10k+</h3>
-              <p className="text-slate-500 font-mono text-sm uppercase">Dataset Curation</p>
+              <p className="text-slate-500 font-mono text-sm uppercase font-bold tracking-widest">Finance Q&A Dataset Curation</p>
             </div>
           </div>
         </motion.div>
