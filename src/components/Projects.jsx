@@ -14,7 +14,7 @@ const projects = [
     impact: "Achieved BLEU: 57.91, ROUGE-L: 0.64, and BERTScore-F1: 0.94.",
     github: "https://github.com/peaceboii/gpt2-finance-qa.git",
     live: "https://gpt2-finance.streamlit.app/",
-    image: "/assets/finaceQ&A chatBot.png"
+    image: "assets/finaceQ&A chatBot.png"
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const projects = [
     impact: "Hosted on Render with automated database backups and secure auth.",
     github: "https://github.com/peaceboii/personal-finance-tracker",
     live: "https://personal-finance-tracker-1-3vl9.onrender.com",
-    image: "/assets/personal-finance.png"
+    image: "assets/personal-finance.png"
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const projects = [
     impact: "Automated daily news curation, tailored to user-specified niches.",
     github: "https://github.com/peaceboii/NewsBot.git",
     live: "https://newsbot-gzlm.onrender.com/",
-    image: "/assets/NewsBot.png"
+    image: "assets/NewsBot.png"
   }
 ];
 
@@ -74,7 +74,7 @@ export default function Projects() {
             >
               <div className="aspect-video relative overflow-hidden">
                 <img 
-                  src={project.image} 
+                  src={`${import.meta.env.BASE_URL}${project.image}`} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                 />
@@ -125,7 +125,7 @@ export default function Projects() {
               
               <div className="grid md:grid-cols-2">
                 <div className="aspect-square md:aspect-auto">
-                   <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                   <img src={`${import.meta.env.BASE_URL}${selectedProject.image}`} alt={selectedProject.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-8 md:p-12 overflow-y-auto max-h-[60vh] md:max-h-none">
                   <p className="text-cyan-600 font-mono text-xs mb-4 uppercase tracking-widest font-bold">{selectedProject.category}</p>

@@ -51,7 +51,7 @@ export default function About() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="h-full w-full border border-dashed border-slate-300 rounded-xl flex items-center justify-center overflow-hidden">
-               <img src="/assets/profile.png" alt="Kumaravelu" className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-500" />
+               <img src={`${import.meta.env.BASE_URL}assets/profile.png`} alt="Kumaravelu" className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-500" />
             </div>
           </motion.div>
           
