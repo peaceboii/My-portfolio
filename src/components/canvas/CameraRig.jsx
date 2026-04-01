@@ -1,25 +1,25 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
-// Camera waypoints per scroll section (0 = hero, 1 = about, etc.)
+// Camera waypoints: cinematic M4 interior angles
 const WAYPOINTS = [
-    new THREE.Vector3(0, 0, 18),    // Hero
-    new THREE.Vector3(-8, 2, 14),   // About
-    new THREE.Vector3(8, -2, 13),   // Skills
-    new THREE.Vector3(0, 5, 11),    // Projects
-    new THREE.Vector3(0, -4, 15),   // Contact
+    new THREE.Vector3(0, 2, 10),    // Hero  — wide driver's view
+    new THREE.Vector3(-3, 0.5, 6.5),   // About — left (driver) side angle
+    new THREE.Vector3(3, -0.5, 6),     // Skills — right angled view
+    new THREE.Vector3(0, -0.5, 7),     // Specs — straight ahead lower
+    new THREE.Vector3(-1, 1.5, 8.5),   // Projects — elevated angle
+    new THREE.Vector3(0, 0.5, 9.5),    // Contact — pull back
 ]
 
 const LOOK_TARGETS = [
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(0, 0.5, 0),
-    new THREE.Vector3(0, -0.5, 0),
-    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(0, -1.2, 0),
+    new THREE.Vector3(-1, -1, -0.5),
+    new THREE.Vector3(1, -1, -1),
+    new THREE.Vector3(0, -1.5, -1.5),
+    new THREE.Vector3(0, -0.8, 0),
     new THREE.Vector3(0, -1, 0),
 ]
-
-const lerpV3 = (a, b, t) => a.clone().lerp(b, t)
 
 export default function CameraRig({ scrollProgress }) {
     const { camera } = useThree()
@@ -28,21 +28,17 @@ export default function CameraRig({ scrollProgress }) {
     const currentLook = useRef(new THREE.Vector3())
 
     useFrame((_, delta) => {
-        const totalSections = WAYPOINTS.length - 1
-        const rawIndex = scrollProgress * totalSections
-        const lower = Math.floor(rawIndex)
-        const upper = Math.min(lower + 1, totalSections)
-        const t = rawIndex - lower
+        const total = WAYPOINTS.length - 1
+        const raw = scrollProgress * total
+        const lower = Math.floor(raw)
+        const upper = Math.min(lower + 1, total)
+        const t = raw - lower
 
-        // Smooth between two waypoints
-        targetPos.current.copy(lerpV3(WAYPOINTS[lower], WAYPOINTS[upper], t))
-        targetLook.current.copy(lerpV3(LOOK_TARGETS[lower], LOOK_TARGETS[upper], t))
+        targetPos.current.lerpVectors(WAYPOINTS[lower], WAYPOINTS[upper], t)
+        targetLook.current.lerpVectors(LOOK_TARGETS[lower], LOOK_TARGETS[upper], t)
 
-        // Lerp camera position smoothly
-        camera.position.lerp(targetPos.current, delta * 2.5)
-
-        // Smooth look-at
-        currentLook.current.lerp(targetLook.current, delta * 2.5)
+        camera.position.lerp(targetPos.current, delta * 2.2)
+        currentLook.current.lerp(targetLook.current, delta * 2.2)
         camera.lookAt(currentLook.current)
     })
 

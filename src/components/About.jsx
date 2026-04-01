@@ -1,30 +1,78 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function About() {
-    return (
-        <section id="about" className="section">
-            <div className="container">
-                <p className="section-tag">About</p>
-                <h2 className="section-title">Building practical products with clean code</h2>
-                <p className="section-text">
-                    I work across frontend, backend, and automation workflows. My focus is creating reliable applications that solve real
-                    business problems, especially in data-heavy and finance-related domains.
-                </p>
-                <div className="info-grid">
-                    <article className="info-card">
-                        <h3>Backend</h3>
-                        <p>Python, Node.js, REST APIs, background jobs, and integrations.</p>
-                    </article>
-                    <article className="info-card">
-                        <h3>Frontend</h3>
-                        <p>React, responsive UI systems, accessibility, and smooth interactions.</p>
-                    </article>
-                    <article className="info-card">
-                        <h3>FinTech Focus</h3>
-                        <p>Trading automation, market data pipelines, and analytics tooling.</p>
-                    </article>
-                </div>
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  return (
+    <section id="about" ref={containerRef} className="relative min-h-screen py-24 flex items-center overflow-hidden">
+      <div className="container px-6 grid md:grid-cols-2 gap-16 items-center">
+        <motion.div style={{ opacity }}>
+          <motion.p 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="text-cyan-400 font-mono mb-4"
+          >
+            01. INTRODUCTION
+          </motion.p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            Developing <span className="text-gradient">Impactful</span> Digital Solutions
+          </h2>
+          <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
+            <p>
+              I am a developer who thrives at the intersection of finance and technology. My journey is driven by a curiosity to automate the complex and simplify the user experience.
+            </p>
+            <p>
+              With a background in Full Stack development and a deep interest in FinTech, I build applications that are not only functional but also performant and secure.
+            </p>
+          </div>
+          
+          <div className="mt-12 grid grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-white font-bold text-3xl mb-1">5+</h3>
+              <p className="text-slate-500 font-mono text-sm uppercase">Years Coding</p>
             </div>
-        </section>
-    );
+            <div>
+              <h3 className="text-white font-bold text-3xl mb-1">20+</h3>
+              <p className="text-slate-500 font-mono text-sm uppercase">Projects Delivered</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="relative">
+          <motion.div 
+            style={{ y: y1 }}
+            className="aspect-square glass rounded-2xl p-8 relative z-10 overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="h-full w-full border border-dashed border-slate-700/50 rounded-xl flex items-center justify-center">
+               <span className="text-slate-500 font-mono">IMAGE_PLACEHOLDER</span>
+            </div>
+          </motion.div>
+          
+          {/* Decorative Elements */}
+          <motion.div 
+            style={{ y: y2 }}
+            className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/20 blur-3xl rounded-full"
+          />
+          <motion.div 
+             animate={{ 
+               rotate: 360,
+               scale: [1, 1.1, 1]
+             }}
+             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+             className="absolute -bottom-10 -left-10 w-32 h-32 border border-cyan-500/20 rounded-full border-dashed"
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
