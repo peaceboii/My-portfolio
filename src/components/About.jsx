@@ -19,14 +19,14 @@ export default function About() {
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="text-cyan-400 font-mono mb-4"
+            className="text-cyan-600 font-mono mb-4"
           >
             01. INTRODUCTION
           </motion.p>
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-slate-900">
             Where Logic meets <span className="text-gradient">Market Psychology</span>
           </h2>
-          <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
+          <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
             <p>
                 My journey started with scripting strategies for the forex market, but I quickly expanded into
                 backend development, working on APIs, data pipelines, and real-time trading systems.
@@ -38,11 +38,11 @@ export default function About() {
           
           <div className="mt-12 grid grid-cols-2 gap-8">
             <div>
-              <h3 className="text-white font-bold text-3xl mb-1">3+</h3>
+              <h3 className="text-slate-900 font-bold text-3xl mb-1">3+</h3>
               <p className="text-slate-500 font-mono text-sm uppercase">Years in FinTech</p>
             </div>
             <div>
-              <h3 className="text-white font-bold text-3xl mb-1">10k+</h3>
+              <h3 className="text-slate-900 font-bold text-3xl mb-1">10k+</h3>
               <p className="text-slate-500 font-mono text-sm uppercase">Dataset Curation</p>
             </div>
           </div>
@@ -51,18 +51,18 @@ export default function About() {
         <div className="relative">
           <motion.div 
             style={{ y: y1 }}
-            className="aspect-square glass rounded-2xl p-8 relative z-10 overflow-hidden group"
+            className="aspect-square glass rounded-2xl p-8 relative z-10 overflow-hidden group shadow-2xl shadow-slate-200"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="h-full w-full border border-dashed border-slate-700/50 rounded-xl flex items-center justify-center overflow-hidden">
-               <img src="/assets/profile.png" alt="Kumaravelu" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="h-full w-full border border-dashed border-slate-300 rounded-xl flex items-center justify-center overflow-hidden">
+               <img src="/assets/profile.png" alt="Kumaravelu" className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-500" />
             </div>
           </motion.div>
           
           {/* Decorative Elements */}
           <motion.div 
             style={{ y: y2 }}
-            className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/20 blur-3xl rounded-full"
+            className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/5 blur-3xl rounded-full"
           />
           <motion.div 
              animate={{ 
@@ -70,7 +70,7 @@ export default function About() {
                scale: [1, 1.1, 1]
              }}
              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-             className="absolute -bottom-10 -left-10 w-32 h-32 border border-cyan-500/20 rounded-full border-dashed"
+             className="absolute -bottom-10 -left-10 w-32 h-32 border border-cyan-500/10 rounded-full border-dashed"
           />
         </div>
       </div>

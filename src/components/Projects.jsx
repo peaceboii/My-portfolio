@@ -56,10 +56,10 @@ export default function Projects() {
            className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
           <div>
-            <p className="text-cyan-400 font-mono mb-2">03. WORK</p>
-            <h2 className="text-4xl md:text-5xl font-bold">Featured <span className="text-gradient">Projects</span></h2>
+            <p className="text-cyan-600 font-mono mb-2">03. WORK</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Featured <span className="text-gradient">Projects</span></h2>
           </div>
-          <p className="text-slate-400 max-w-md">
+          <p className="text-slate-600 max-w-md">
             A selection of my technical implementations in FinTech, AI/NLP, and Full-stack development.
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export default function Projects() {
               key={project.id}
               layoutId={`card-${project.id}`}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer rounded-2xl overflow-hidden glass border border-slate-800 hover:border-cyan-500/50 transition-all flex flex-col"
+              className="group cursor-pointer rounded-2xl overflow-hidden glass border border-slate-200 hover:border-cyan-500/50 transition-all flex flex-col shadow-sm hover:shadow-2xl hover:shadow-slate-200"
             >
               <div className="aspect-video relative overflow-hidden">
                 <img 
@@ -78,19 +78,19 @@ export default function Projects() {
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                 />
-                <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="bg-cyan-500 text-black p-3 rounded-full">
+                <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                  <div className="bg-cyan-600 text-white p-3 rounded-full shadow-lg">
                     <Info size={24} />
                   </div>
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-1">
-                <p className="text-cyan-400 font-mono text-xs mb-2">{project.category}</p>
-                <h3 className="text-xl font-bold mb-4">{project.title}</h3>
-                <p className="text-slate-400 text-sm mb-6 flex-1 line-clamp-2">{project.description}</p>
+                <p className="text-cyan-600 font-mono text-xs mb-2 font-bold uppercase tracking-widest">{project.category}</p>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">{project.title}</h3>
+                <p className="text-slate-600 text-sm mb-6 flex-1 line-clamp-2">{project.description}</p>
                 <div className="flex gap-4">
                    {project.tech.slice(0, 3).map((t, i) => (
-                     <span key={i} className="text-[10px] uppercase font-bold tracking-wider text-slate-500 border border-slate-800 px-2 py-1 rounded">
+                     <span key={i} className="text-[10px] uppercase font-bold tracking-wider text-slate-500 border border-slate-200 px-2 py-1 rounded">
                        {t}
                      </span>
                    ))}
@@ -109,16 +109,16 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-slate-950/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-900/10 backdrop-blur-md"
             />
             
             <motion.div 
               layoutId={`card-${selectedProject.id}`}
-              className="relative w-full max-w-3xl glass border border-slate-800 rounded-3xl overflow-hidden shadow-2xl"
+              className="relative w-full max-w-3xl glass border border-slate-200 rounded-3xl overflow-hidden shadow-2xl bg-white"
             >
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 bg-slate-800/50 hover:bg-slate-700 rounded-full transition-colors z-10"
+                className="absolute top-6 right-6 p-2 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors z-10 text-slate-900"
               >
                 <X size={20} />
               </button>
@@ -128,38 +128,38 @@ export default function Projects() {
                    <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-8 md:p-12 overflow-y-auto max-h-[60vh] md:max-h-none">
-                  <p className="text-cyan-400 font-mono text-xs mb-4 uppercase tracking-widest">{selectedProject.category}</p>
-                  <h3 className="text-4xl font-bold mb-8">{selectedProject.title}</h3>
+                  <p className="text-cyan-600 font-mono text-xs mb-4 uppercase tracking-widest font-bold">{selectedProject.category}</p>
+                  <h3 className="text-4xl font-bold mb-8 text-slate-900">{selectedProject.title}</h3>
                   
                   <div className="space-y-8">
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Goal</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.problem}</p>
+                      <h4 className="text-slate-400 font-bold mb-2 uppercase text-xs tracking-widest">Goal</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{selectedProject.problem}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Methodology</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.solution}</p>
+                      <h4 className="text-slate-400 font-bold mb-2 uppercase text-xs tracking-widest">Methodology</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{selectedProject.solution}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest text-slate-500">Metrics/Impact</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{selectedProject.impact}</p>
+                      <h4 className="text-slate-400 font-bold mb-2 uppercase text-xs tracking-widest">Metrics/Impact</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{selectedProject.impact}</p>
                     </div>
                   </div>
 
                   <div className="mt-12 flex flex-wrap gap-3">
                     {selectedProject.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] text-cyan-400 font-bold border border-cyan-500/20 bg-cyan-500/5 px-2 py-1 rounded">
+                      <span key={i} className="text-[10px] text-cyan-600 font-bold border border-cyan-500/20 bg-cyan-500/5 px-2 py-1 rounded">
                         {t}
                       </span>
                     ))}
                   </div>
 
                   <div className="mt-12 flex gap-6">
-                    <a href={selectedProject.live} target="_blank" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
+                    <a href={selectedProject.live} target="_blank" className="flex items-center gap-2 text-slate-900 hover:text-cyan-600 transition-colors">
                        <ExternalLink size={18} />
                        <span className="font-bold text-sm tracking-widest">LIVE DEMO</span>
                     </a>
-                    <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
+                    <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 text-slate-900 hover:text-cyan-600 transition-colors">
                        <Github size={18} />
                        <span className="font-bold text-sm tracking-widest">GITHUB</span>
                     </a>

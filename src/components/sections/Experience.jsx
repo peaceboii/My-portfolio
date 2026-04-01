@@ -31,13 +31,13 @@ export default function Experience() {
            whileInView={{ opacity: 1 }}
            className="mb-16"
         >
-          <p className="text-cyan-400 font-mono mb-2">04. JOURNEY</p>
-          <h2 className="text-4xl md:text-5xl font-bold">Career <span className="text-gradient">Timeline</span></h2>
+          <p className="text-cyan-600 font-mono mb-2">04. JOURNEY</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Career <span className="text-gradient">Timeline</span></h2>
         </motion.div>
 
         <div className="relative max-w-3xl">
           {/* Timeline Line */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-800" />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-200" />
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -49,15 +49,15 @@ export default function Experience() {
                 className="relative pl-8 group"
               >
                 {/* Dot */}
-                <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-700 group-hover:bg-cyan-500 transition-colors shadow-[0_0_10px_rgba(6,182,212,0)] group-hover:shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-300 group-hover:bg-cyan-600 transition-colors shadow-[0_0_10px_rgba(14,165,233,0)] group-hover:shadow-[0_0_10px_rgba(14,165,233,0.5)]" />
                 
-                <div className="glass p-6 rounded-2xl border border-slate-800 group-hover:border-slate-700 transition-all">
+                <div className="glass p-6 rounded-2xl border border-slate-200 group-hover:border-slate-300 transition-all shadow-sm group-hover:shadow-lg">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                    <span className="text-cyan-400 font-mono text-sm">{exp.period}</span>
+                    <h3 className="text-xl font-bold text-slate-900">{exp.role}</h3>
+                    <span className="text-cyan-600 font-mono text-sm font-bold">{exp.period}</span>
                   </div>
-                  <h4 className="text-slate-200 font-medium mb-3">{exp.company}</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">{exp.desc}</p>
+                  <h4 className="text-slate-700 font-medium mb-3">{exp.company}</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{exp.desc}</p>
                 </div>
               </motion.div>
             ))}

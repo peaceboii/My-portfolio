@@ -14,7 +14,7 @@ import { AnimatePresence } from 'framer-motion';
 function App() {
     return (
         <SmoothScroll>
-            <div className="bg-slate-950 text-slate-50 min-h-screen selection:bg-cyan-500/30">
+            <div className="bg-slate-50 text-slate-900 min-h-screen selection:bg-cyan-500/20">
                 <CustomCursor />
                 <Navbar />
                 <main>
