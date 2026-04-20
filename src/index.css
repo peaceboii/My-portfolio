@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital,wght@1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  --accent: 0 0% 96%;
+
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Instrument Serif', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-primary font-body antialiased selection:bg-accent selection:text-bg;
+  }
+}
+
+@layer components {
+  .accent-gradient {
+    background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  }
+
+  .glass-pill {
+    @apply rounded-full backdrop-blur-md border border-white/10 bg-surface;
+  }
+
+  /* GSAP Entrance Classes */
+  .name-reveal {
+    @apply opacity-0 translate-y-[50px];
+  }
+
+  .blur-in {
+    @apply opacity-0 blur-[10px] translate-y-[20px];
+  }
+}
+
+/* Custom Animations */
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes role-fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Halftone Overlay Utility */
+.halftone {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.lenis.lenis-smooth {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
