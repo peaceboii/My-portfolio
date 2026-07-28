@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Hls from 'hls.js';
 import { gsap } from 'gsap';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -63,7 +64,13 @@ const Footer: React.FC = () => {
         </div>
 
         {/* CTA Content */}
-        <div className="container mx-auto px-6 text-center max-w-2xl mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="container mx-auto px-6 text-center max-w-2xl mb-24"
+        >
           <h2 className="text-4xl md:text-6xl text-text-primary mb-12">
             Open to <span className="font-display italic">new opportunities</span> and collaborations.
           </h2>
@@ -76,7 +83,7 @@ const Footer: React.FC = () => {
             <span className="relative z-10 font-medium">kumaravelu2003@gmail.com</span>
             <span className="relative z-10 text-2xl group-hover:translate-x-2 transition-transform">→</span>
           </a>
-        </div>
+        </motion.div>
 
         {/* Bottom Bar */}
         <div className="container mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-muted uppercase tracking-[0.2em]">

@@ -7,9 +7,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LoadingScreen from './components/LoadingScreen.tsx';
 import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
 import SelectedWorks from './components/SelectedWorks.tsx';
 import SkillsMarquee from './components/SkillsMarquee.tsx';
 import Footer from './components/Footer.tsx';
+import SplashCursor from './components/SplashCursor.tsx';
+import Galaxy from './components/Galaxy.tsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,10 +48,31 @@ const App: React.FC = () => {
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       ) : (
         <div className="flex flex-col">
+          <SplashCursor />
           <Navbar />
           <Hero />
-          <SelectedWorks />
-          <SkillsMarquee />
+          
+          <div className="relative">
+            {/* Galaxy background container */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <Galaxy 
+                mouseRepulsion={true}
+                mouseInteraction={true}
+                density={1.5}
+                glowIntensity={0.5}
+                saturation={0.8}
+                hueShift={240}
+              />
+            </div>
+            
+            {/* Page Sections */}
+            <div className="relative z-10">
+              <About />
+              <SelectedWorks />
+              <SkillsMarquee />
+            </div>
+          </div>
+
           <Footer />
         </div>
       )}

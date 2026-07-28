@@ -74,8 +74,11 @@ const Hero: React.FC = () => {
           PYTHON • AI • FULLSTACK
         </span>
         
-        <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6">
-          kumaravelu
+        <h1 
+          className="name-reveal text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight text-text-primary mb-6 uppercase"
+          style={{ fontFamily: "'Lora', serif", fontStyle: 'italic' }}
+        >
+          KUMARAVELU
         </h1>
 
         <div className="blur-in text-lg md:text-2xl text-text-primary/90 mb-6 flex items-center justify-center gap-2">
