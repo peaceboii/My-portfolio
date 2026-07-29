@@ -79,7 +79,7 @@ export const CONTACT = {
     email: 'kumaravelu2003@gmail.com',
     linkedin: 'https://linkedin.com/in/kumaravel-raj',
     github: 'https://github.com/peaceboii',
-    resume: '/assets/resume.pdf',
+    resume: 'https://drive.google.com/file/d/1jW4IBeec2SKRMjkOtbtsT-ZsIXvuJJlZ/view?usp=drive_link',
     blurb:
         'Open to collaborations, feedback, and interesting finance/AI problems. I love connecting with people who share a passion for fintech and intelligent systems.',
 }

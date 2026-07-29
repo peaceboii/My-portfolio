@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     { label: "About", href: "#about" },
     { label: "Work", href: "#work" },
     { label: "Skills", href: "#skills" },
-    { label: "Resume", href: `${import.meta.env.BASE_URL}assets/resume.pdf` },
+    { label: "Resume", href: "https://drive.google.com/file/d/1jW4IBeec2SKRMjkOtbtsT-ZsIXvuJJlZ/view?usp=drive_link" },
     { label: "Say Hi", href: "mailto:kumaravelu2003@gmail.com" }
   ];
 

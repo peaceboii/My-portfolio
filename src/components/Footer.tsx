@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Hls from 'hls.js';
 import { gsap } from 'gsap';
-import { motion } from 'framer-motion';
+import { Section3D, Text3D, Container3D } from './ThreeDTransitions';
 
 const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer id="contact" className="relative bg-bg pt-24 pb-12 overflow-hidden border-t border-stroke">
+    <Section3D id="contact" className="relative bg-bg pt-24 pb-12 overflow-hidden border-t border-stroke">
       {/* Background Video (Flipped) */}
       <div className="absolute inset-0 z-0">
         <video
@@ -64,26 +64,26 @@ const Footer: React.FC = () => {
         </div>
 
         {/* CTA Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="container mx-auto px-6 text-center max-w-2xl mb-24"
-        >
+        <div className="container mx-auto px-6 text-center max-w-2xl mb-24">
           <h2 className="text-4xl md:text-6xl text-text-primary mb-12">
-            Open to <span className="font-display italic">new opportunities</span> and collaborations.
+            <Text3D text="Open to" delay={0.1} />{' '}
+            <span className="font-display italic inline-block">
+              <Text3D text="new opportunities" delay={0.25} />
+            </span>{' '}
+            <Text3D text="and collaborations." delay={0.4} />
           </h2>
           
-          <a 
-            href="mailto:kumaravelu2003@gmail.com" 
-            className="group relative inline-flex items-center gap-4 rounded-full px-10 py-5 bg-surface border border-white/10 text-lg sm:text-xl transition-all hover:scale-105"
-          >
-            <span className="absolute -inset-[2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative z-10 font-medium">kumaravelu2003@gmail.com</span>
-            <span className="relative z-10 text-2xl group-hover:translate-x-2 transition-transform">→</span>
-          </a>
-        </motion.div>
+          <Container3D delay={0.55} duration={0.8} tiltOnHover={true} rotateXStart={15} yStart={20} className="inline-block">
+            <a 
+              href="mailto:kumaravelu2003@gmail.com" 
+              className="group relative inline-flex items-center gap-4 rounded-full px-10 py-5 bg-surface border border-white/10 text-lg sm:text-xl transition-all hover:scale-105"
+            >
+              <span className="absolute -inset-[2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="relative z-10 font-medium">kumaravelu2003@gmail.com</span>
+              <span className="relative z-10 text-2xl group-hover:translate-x-2 transition-transform">→</span>
+            </a>
+          </Container3D>
+        </div>
 
         {/* Bottom Bar */}
         <div className="container mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-muted uppercase tracking-[0.2em]">
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </Section3D>
   );
 };
 

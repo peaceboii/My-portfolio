@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
-import { gsap } from 'gsap';
+import { Text3D, Container3D } from './ThreeDTransitions';
 
 const ROLES = ["Python Developer", "Full-stack Developer", "AI Enthusiast"];
 
@@ -27,28 +27,8 @@ const Hero: React.FC = () => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
     }, 2000);
 
-    // GSAP Entrance
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      
-      tl.to(".name-reveal", {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        delay: 0.1
-      })
-      .to(".blur-in", {
-        opacity: 1,
-        filter: "blur(0px)",
-        y: 0,
-        duration: 1,
-        stagger: 0.1
-      }, "-=0.8");
-    }, containerRef);
-
     return () => {
       clearInterval(interval);
-      ctx.revert();
     };
   }, []);
 
@@ -70,50 +50,59 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl pt-20">
-        <span className="blur-in inline-block text-xs text-muted uppercase tracking-[0.3em] mb-8">
-          PYTHON • AI • FULLSTACK
-        </span>
+        <Text3D
+          text="PYTHON • AI • FULLSTACK"
+          className="text-xs text-muted uppercase tracking-[0.3em] mb-8 font-semibold"
+          delay={0.1}
+          duration={0.6}
+        />
         
         <h1 
-          className="name-reveal text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight text-text-primary mb-6 uppercase"
+          className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight text-text-primary mb-6 uppercase"
           style={{ fontFamily: "'Lora', serif", fontStyle: 'italic' }}
         >
-          KUMARAVELU
+          <Text3D text="KUMARAVELU" delay={0.2} duration={0.9} charDelay={0.03} />
         </h1>
 
-        <div className="blur-in text-lg md:text-2xl text-text-primary/90 mb-6 flex items-center justify-center gap-2">
-          <span>A</span>
-          <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block min-w-[180px] text-center">
-            {ROLES[roleIndex]}
-          </span>
-          <span>based in India.</span>
-        </div>
-
-        <p className="blur-in text-sm md:text-base text-muted max-w-md mx-auto mb-12 leading-relaxed">
-          Crafting intelligent web systems through code. Passionate about AI integration and scalable backend solutions.
-        </p>
-
-        <div className="blur-in flex flex-wrap items-center justify-center gap-4">
-          <button 
-            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group relative rounded-full text-sm px-8 py-4 bg-text-primary text-bg font-medium transition-transform hover:scale-105"
-          >
-            <span className="relative z-10">See Works</span>
-            <div className="absolute -inset-[1px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-          </button>
-          
-          <a 
-            href="/assets/resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group relative rounded-full text-sm px-8 py-4 border-2 border-stroke bg-bg/50 backdrop-blur-sm text-text-primary font-medium transition-all hover:scale-105 hover:border-transparent"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Resume <span className="text-[10px]">↓</span>
+        <Container3D delay={0.4} duration={0.8} tiltOnHover={false} rotateXStart={15} yStart={30}>
+          <div className="text-lg md:text-2xl text-text-primary/90 mb-6 flex items-center justify-center gap-2">
+            <span>A</span>
+            <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block min-w-[180px] text-center">
+              {ROLES[roleIndex]}
             </span>
-            <div className="absolute -inset-[2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-          </a>
-        </div>
+            <span>based in India.</span>
+          </div>
+        </Container3D>
+
+        <Container3D delay={0.55} duration={0.8} tiltOnHover={false} rotateXStart={15} yStart={30}>
+          <p className="text-sm md:text-base text-muted max-w-md mx-auto mb-12 leading-relaxed">
+            Crafting intelligent web systems through code. Passionate about AI integration and scalable backend solutions.
+          </p>
+        </Container3D>
+
+        <Container3D delay={0.7} duration={0.8} tiltOnHover={false} rotateXStart={15} yStart={30}>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button 
+              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group relative rounded-full text-sm px-8 py-4 bg-text-primary text-bg font-medium transition-transform hover:scale-105"
+            >
+              <span className="relative z-10">See Works</span>
+              <div className="absolute -inset-[1px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            </button>
+            
+            <a 
+              href="https://drive.google.com/file/d/1jW4IBeec2SKRMjkOtbtsT-ZsIXvuJJlZ/view?usp=drive_link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative rounded-full text-sm px-8 py-4 border-2 border-stroke bg-bg/50 backdrop-blur-sm text-text-primary font-medium transition-all hover:scale-105 hover:border-transparent"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Resume <span className="text-[10px]">↓</span>
+              </span>
+              <div className="absolute -inset-[2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            </a>
+          </div>
+        </Container3D>
       </div>
 
       {/* Scroll Indicator */}
