@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="800" height="250">
+  <!-- Dark Space Background -->
+  <rect width="100%" height="100%" fill="#060608" />
+  <defs>
+    <!-- Glowing gradients -->
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#89AACC" />
+      <stop offset="100%" stop-color="#4E85BF" />
+    </linearGradient>
+    <radialGradient id="radialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4E85BF" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <!-- Background Glow -->
+  <circle cx="400" cy="125" r="300" fill="url(#radialGlow)" />
+  <!-- Subtle line constellation patterns -->
+  <path d="M 0,250 L 800,0 M 100,250 Q 400,60 700,250 M 200,0 Q 400,180 600,0" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" fill="none" />
+  <!-- Minimal star points -->
+  <circle cx="150" cy="60" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="650" cy="190" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="300" cy="180" r="2" fill="#fff" opacity="0.7"/>
+  <circle cx="550" cy="70" r="1.5" fill="#fff" opacity="0.5"/>
+  <!-- Monogram/Logo icon on the left -->
+  <g transform="translate(60, 62)">
+    <rect width="125" height="125" rx="24" fill="#0f1115" stroke="#1d2026" stroke-width="1.5" />
+    <!-- Nested logo glowing shape -->
+    <circle cx="62.5" cy="62.5" r="45" fill="none" stroke="url(#glowGrad)" stroke-width="2" stroke-dasharray="180 50" />
+    <!-- "K" monogram -->
+    <path d="M48 38V87M48 62.5L68 38M58 64L72 87" stroke="url(#glowGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <!-- Text Content -->
+  <g transform="translate(210, 95)">
+    <!-- Title -->
+    <text x="0" y="10" font-family="'Georgia', serif" font-size="38" font-weight="bold" font-style="italic" fill="#ffffff" letter-spacing="4">KUMARAVELU</text>
+    <!-- Handle -->
+    <text x="0" y="38" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#4E85BF" letter-spacing="2">@peaceboii</text>
+    <!-- Subtitle -->
+    <text x="0" y="62" font-family="system-ui, sans-serif" font-size="13" fill="#8E9AA8" letter-spacing="1">Python Architect • FinTech • Intelligent AI Workflows</text>
+  </g>
+  <!-- Decorative Orbit shapes -->
+  <path d="M 720,110 L 740,125 L 720,140 L 700,125 Z" fill="none" stroke="url(#glowGrad)" stroke-width="1" stroke-opacity="0.2" />
+  <circle cx="720" cy="125" r="6" fill="none" stroke="url(#glowGrad)" stroke-width="1.5" stroke-opacity="0.4" />
+</svg>
